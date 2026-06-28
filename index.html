@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio Igora Matysiaka — uczeń, twórca i programista. Poznaj moje projekty, w tym LoomRate." />
+  <meta name="author" content="Igor Matysiak" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Igor Matysiak — Portfolio" />
+  <meta property="og:description" content="Uczeń, twórca i programista. Poznaj moje projekty, w tym LoomRate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+
+  <title>Igor Matysiak — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Background decoration -->
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <a href="#hero" class="nav__logo">IM</a>
+    <nav class="nav__links" aria-label="Nawigacja główna">
+      <a href="#about">O mnie</a>
+      <a href="#projects">Projekty</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <a href="#contact" class="btn btn--small">Napisz do mnie</a>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <p class="hero__eyebrow">Cześć, jestem Igor 👋</p>
+      <h1 class="hero__title">
+        Igor Matysiak
+      </h1>
+      <p class="hero__subtitle">
+        Uczeń American School of Warsaw, twórca i&nbsp;programista.
+        Buduję rzeczy, które rozwiązują realne problemy.
+      </p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn">Zobacz projekty</a>
+        <a href="https://loomrate.com" target="_blank" rel="noopener" class="btn btn--ghost">
+          Odwiedź LoomRate ↗
+        </a>
+      </div>
+      <ul class="hero__meta">
+        <li><span>📍</span> Warszawa, Polska</li>
+        <li><span>🎓</span> American School of Warsaw</li>
+        <li><span>💻</span> Tworzę aplikacje webowe</li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <p class="section__label">01 — O mnie</p>
+      <h2 class="section__title">Kim jestem</h2>
+      <div class="about">
+        <p>
+          Jestem uczniem <strong>American School of Warsaw</strong> z pasją do technologii
+          i&nbsp;tworzenia produktów cyfrowych. Lubię zamieniać pomysły w&nbsp;działające
+          aplikacje — od pierwszego szkicu, przez kod, aż po gotowy produkt, z&nbsp;którego
+          korzystają prawdziwi ludzie.
+        </p>
+        <p>
+          Interesuje mnie programowanie, projektowanie interfejsów i&nbsp;przedsiębiorczość.
+          Moim największym dotychczasowym projektem jest <strong>LoomRate</strong> —
+          narzędzie pomagające freelancerom obliczać ich realną stawkę godzinową.
+        </p>
+        <div class="skills">
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML &amp; CSS</span>
+          <span class="chip">Aplikacje webowe</span>
+          <span class="chip">UI / UX</span>
+          <span class="chip">Przedsiębiorczość</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <p class="section__label">02 — Projekty</p>
+      <h2 class="section__title">Nad czym pracowałem</h2>
+
+      <article class="project project--featured">
+        <div class="project__head">
+          <span class="project__badge">Główny projekt</span>
+          <a href="https://loomrate.com" target="_blank" rel="noopener" class="project__link" aria-label="Otwórz LoomRate">↗</a>
+        </div>
+        <h3 class="project__title">LoomRate</h3>
+        <p class="project__desc">
+          Kalkulator stawek dla freelancerów, który przelicza wynagrodzenie za projekt
+          na realną stawkę godzinową. Uwzględnia podatki, prowizje platform, koszty stałe
+          oraz nieopłacaną pracę, taką jak spotkania i&nbsp;poprawki. Dzięki temu freelancer
+          wie, czy zlecenie naprawdę się opłaca — <em>zanim podpisze umowę</em>.
+        </p>
+        <ul class="project__tags">
+          <li>Aplikacja webowa</li>
+          <li>Działa w&nbsp;przeglądarce</li>
+          <li>Bez rejestracji</li>
+        </ul>
+        <a href="https://loomrate.com" target="_blank" rel="noopener" class="btn btn--small">
+          Wypróbuj LoomRate ↗
+        </a>
+      </article>
+
+      <article class="project project--soon">
+        <h3 class="project__title">Więcej w drodze</h3>
+        <p class="project__desc">
+          Ciągle uczę się i&nbsp;buduję nowe rzeczy. Kolejne projekty pojawią się tutaj wkrótce.
+        </p>
+      </article>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--contact">
+      <p class="section__label">03 — Kontakt</p>
+      <h2 class="section__title">Porozmawiajmy</h2>
+      <p class="contact__lead">
+        Masz pomysł, pytanie albo chcesz nawiązać współpracę? Chętnie się odezwę.
+      </p>
+      <div class="contact__grid">
+        <a href="mailto:imatysiak00@gmail.com" class="contact__card">
+          <span class="contact__icon">✉️</span>
+          <span class="contact__label">E-mail</span>
+          <span class="contact__value">imatysiak00@gmail.com</span>
+        </a>
+        <a href="tel:+48579997261" class="contact__card">
+          <span class="contact__icon">📱</span>
+          <span class="contact__label">Telefon</span>
+          <span class="contact__value">+48 579 997 261</span>
+        </a>
+        <a href="https://www.linkedin.com/in/igor-matysiak-8331a1417/" target="_blank" rel="noopener" class="contact__card">
+          <span class="contact__icon">in</span>
+          <span class="contact__label">LinkedIn</span>
+          <span class="contact__value">Igor Matysiak</span>
+        </a>
+        <a href="https://x.com/igor1matysiak" target="_blank" rel="noopener" class="contact__card">
+          <span class="contact__icon">𝕏</span>
+          <span class="contact__label">X (Twitter)</span>
+          <span class="contact__value">@igor1matysiak</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Igor Matysiak</p>
+    <p class="footer__made">Zbudowane z pasją w Warszawie.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
