@@ -261,6 +261,35 @@ main { width: 100%; }
   border-radius: 999px;
   background: rgba(41, 216, 192, 0.06);
 }
+/* Clickable project tile */
+.project--link-tile { display: block; cursor: pointer; }
+.project--link-tile .project__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 0;
+}
+.project--link-tile .project__title { margin-bottom: 14px; }
+.project__arrow {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  font-size: 1.1rem;
+  color: var(--text);
+  transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+.project--link-tile:hover .project__arrow {
+  background: var(--accent-grad);
+  color: #07131f;
+  border-color: transparent;
+  transform: translate(2px, -2px);
+}
+
 .project--soon { text-align: center; border-style: dashed; opacity: 0.85; }
 .project--soon .project__title { font-size: 1.3rem; color: var(--text-dim); }
 .project--soon .project__desc { margin-bottom: 0; }
