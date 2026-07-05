@@ -1,5 +1,5 @@
-import { DEFAULT_WA_MESSAGE, waLink } from "@/lib/config";
-import { WhatsApp } from "./icons";
+import { igDmLink } from "@/lib/config";
+import { Instagram } from "./icons";
 import { Logo } from "./Logo";
 
 export function Header() {
@@ -24,13 +24,13 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={waLink(DEFAULT_WA_MESSAGE)}
+            href={igDmLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-wa hidden sm:inline-flex"
+            className="btn-ig hidden sm:inline-flex"
           >
-            <WhatsApp className="h-5 w-5" />
-            WhatsApp
+            <Instagram className="h-5 w-5" />
+            Napisz na IG
           </a>
           <a
             href="#projekt"

@@ -9,14 +9,15 @@ Warsaw businesses, delivered in 72h). Built with **Next.js 14 (App Router)**, **
 Open [`lib/config.ts`](lib/config.ts) and set your real details:
 
 ```ts
-phone: "48000000000",        // your WhatsApp number: country code + digits, no "+" or spaces
-instagram: "sitelab.warsaw", // without the @
-email: "kontakt@sitelabwarsaw.pl",
-weeklySlots: 3,              // shown in the urgency section
+instagram: "warsaw.sitelab",          // without the @ (this is the contact channel)
+email: "sitelab.warsaw@google.com",
+weeklySlots: 3,                       // shown in the urgency section
 ```
 
-Every CTA (header, hero, form, final section, mobile bar) and the lead form all send the visitor
-straight into **your WhatsApp** with a pre-filled message. No backend, no database, zero setup.
+**Instagram DM is the single contact channel.** Every CTA (header, form, final section, mobile bar,
+footer) opens your Instagram DM (`ig.me/m/<handle>`). Because Instagram can't pre-fill a message,
+the lead form copies a ready-made message to the clipboard and opens the thread for the visitor to
+paste + send. No backend, no database, zero setup.
 
 ## Run locally
 
@@ -42,9 +43,9 @@ npm run dev
 | Metamorfozy | Three real drag-to-compare redesigns, each with one improvement label. |
 | Oferta | One clear offer, what's included, indicative price (`od 1200 zł`), 72h, "pay after approval". |
 | Efekty | Honest Problem → Rozwiązanie → Efekt case studies (labelled as estimates, no fake quotes). |
-| Darmowy projekt | The main lead mechanism: business name + optional link → opens WhatsApp. |
+| Darmowy projekt | The main lead mechanism: business name + optional link → copies a message and opens your Instagram DM. |
 | Final CTA | Urgency (weekly slots), 3-step process, CTA repeated. |
-| Mobile bar | Sticky WhatsApp + "Darmowy projekt" on phones, where most traffic lands. |
+| Mobile bar | Sticky Instagram DM + "Darmowy projekt" on phones, where most traffic lands. |
 
 ## Swapping the examples
 

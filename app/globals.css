@@ -66,8 +66,10 @@
     @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 text-base font-semibold text-ink transition-colors duration-200 hover:text-primary;
   }
 
-  .btn-wa {
-    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:brightness-95 hover:-translate-y-0.5;
+  /* Instagram DM button — brand gradient starts on our orange, so it ties in. */
+  .btn-ig {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:brightness-105 hover:-translate-y-0.5;
+    background-image: linear-gradient(135deg, #f58529 0%, #dd2a7b 55%, #8134af 100%);
   }
 }
 

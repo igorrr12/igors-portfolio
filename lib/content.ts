@@ -82,7 +82,7 @@ export const INCLUDED: string[] = [
   "Projekt strony dopasowany do Twojej firmy i Twoich klientów",
   "Teksty, które realnie zachęcają do telefonu i rezerwacji",
   "Błyskawiczne działanie na telefonach, tam trafia większość klientów",
-  "Wyraźne przyciski: zadzwoń, zarezerwuj, dojazd, WhatsApp",
+  "Wyraźne przyciski: zadzwoń, zarezerwuj, dojazd i napisz",
   "Podpięcie z Google i mapą, gotowe do publikacji",
   "Domena i hosting, wszystko ustawię za Ciebie",
 ];
@@ -98,6 +98,6 @@ export const STEPS: { title: string; desc: string }[] = [
   },
   {
     title: "Dostajesz projekt w 24h",
-    desc: "Wysyłam gotowy projekt na WhatsApp. Podoba się, publikujemy w 72h.",
+    desc: "Wysyłam gotowy projekt na Instagramie. Podoba się, publikujemy w 72h.",
   },
 ];

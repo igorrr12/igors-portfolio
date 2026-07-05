@@ -1,6 +1,6 @@
-import { CONTACT, DEFAULT_WA_MESSAGE, waLink } from "@/lib/config";
+import { CONTACT, igDmLink } from "@/lib/config";
 import { Reveal } from "./Reveal";
-import { ArrowRight, Bolt, Check, WhatsApp } from "./icons";
+import { ArrowRight, Bolt, Check, Instagram } from "./icons";
 
 const flow = [
   { title: "Piszesz do mnie", desc: "Zostawiasz nazwę firmy i link." },
@@ -44,13 +44,13 @@ export function FinalCta() {
               <ArrowRight className="h-5 w-5" />
             </a>
             <a
-              href={waLink(DEFAULT_WA_MESSAGE)}
+              href={igDmLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-wa"
+              className="btn-ig !min-h-[52px]"
             >
-              <WhatsApp className="h-5 w-5" />
-              Napisz na WhatsApp
+              <Instagram className="h-5 w-5" />
+              Napisz na Instagramie
             </a>
           </div>
 

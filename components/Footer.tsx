@@ -1,6 +1,6 @@
-import { CONTACT, DEFAULT_WA_MESSAGE, igLink, mailLink, waLink } from "@/lib/config";
+import { CONTACT, igDmLink, igLink, mailLink } from "@/lib/config";
 import { Logo } from "./Logo";
-import { Instagram, WhatsApp } from "./icons";
+import { Instagram } from "./icons";
 
 export function Footer() {
   return (
@@ -16,13 +16,13 @@ export function Footer() {
         <div className="flex flex-col gap-3">
           <p className="text-xs font-bold uppercase tracking-wider text-white/40">Kontakt</p>
           <a
-            href={waLink(DEFAULT_WA_MESSAGE)}
+            href={igDmLink}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
           >
-            <WhatsApp className="h-4 w-4 text-[#25D366]" />
-            WhatsApp
+            <Instagram className="h-4 w-4" />
+            Napisz na Instagramie
           </a>
           <a
             href={igLink}

@@ -1,18 +1,32 @@
 "use client";
 
 import { useState } from "react";
-import { CONTACT, igLink, waLink } from "@/lib/config";
+import { CONTACT, dmMessage, igDmLink, mailLink } from "@/lib/config";
 import { STEPS } from "@/lib/content";
 import { Reveal } from "./Reveal";
-import { ArrowRight, Check, WhatsApp } from "./icons";
+import { ArrowRight, Check, Instagram } from "./icons";
 
 export function LeadForm() {
   const [business, setBusiness] = useState("");
   const [link, setLink] = useState("");
   const [error, setError] = useState(false);
   const [sent, setSent] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  const message = dmMessage(business.trim(), link.trim() || undefined);
+
+  async function copyMessage(): Promise<boolean> {
+    try {
+      await navigator.clipboard.writeText(message);
+      setCopied(true);
+      return true;
+    } catch {
+      setCopied(false);
+      return false;
+    }
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (business.trim().length < 2) {
       setError(true);
@@ -20,13 +34,9 @@ export function LeadForm() {
     }
     setError(false);
 
-    const message =
-      `Cześć! Chcę darmowy projekt strony.\n` +
-      `Firma: ${business.trim()}` +
-      (link.trim() ? `\nInstagram / strona: ${link.trim()}` : "");
-
-    // Open WhatsApp with the pre-filled message in a new tab.
-    window.open(waLink(message), "_blank", "noopener,noreferrer");
+    // Instagram can't pre-fill a DM, so copy the message and open the thread.
+    await copyMessage();
+    window.open(igDmLink, "_blank", "noopener,noreferrer");
     setSent(true);
   }
 
@@ -122,12 +132,12 @@ export function LeadForm() {
                   </button>
 
                   <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-sm text-muted">
-                    <WhatsApp className="h-4 w-4 text-[#25D366]" />
-                    Otworzę WhatsApp z gotową wiadomością. Zero spamu.
+                    <Instagram className="h-4 w-4 text-primary" />
+                    Otworzę Twój czat na Instagramie z gotową wiadomością. Zero spamu.
                   </p>
                 </form>
               ) : (
-                <div className="py-4 text-center">
+                <div className="py-2 text-center">
                   <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-ok/10 text-ok">
                     <Check className="h-7 w-7" />
                   </span>
@@ -135,33 +145,40 @@ export function LeadForm() {
                     Świetnie, {business.trim()}!
                   </h3>
                   <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-muted">
-                    Otworzyłem WhatsApp z gotową wiadomością. Wyślij ją, a projekt Twojej strony
-                    dostaniesz w 24 godziny.
+                    {copied
+                      ? "Skopiowałem gotową wiadomość i otwieram Twój czat na Instagramie. Wklej ją i wyślij, a projekt wróci w 24h."
+                      : "Otwieram Twój czat na Instagramie. Skopiuj wiadomość poniżej, wyślij ją, a projekt wróci w 24h."}
                   </p>
+
+                  {/* The message, ready to copy/paste */}
+                  <div className="mt-4 rounded-2xl border border-line bg-bg p-3 text-left">
+                    <p className="whitespace-pre-line text-sm text-ink">{message}</p>
+                    <button
+                      type="button"
+                      onClick={copyMessage}
+                      className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover"
+                    >
+                      <Check className="h-4 w-4" />
+                      {copied ? "Skopiowano" : "Kopiuj wiadomość"}
+                    </button>
+                  </div>
+
                   <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
                     <a
-                      href={waLink(
-                        `Cześć! Chcę darmowy projekt strony.\nFirma: ${business.trim()}` +
-                          (link.trim() ? `\nInstagram / strona: ${link.trim()}` : "")
-                      )}
+                      href={igDmLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-wa"
+                      className="btn-ig !min-h-[52px]"
                     >
-                      <WhatsApp className="h-5 w-5" />
-                      Otwórz WhatsApp ponownie
+                      <Instagram className="h-5 w-5" />
+                      Otwórz Instagram
                     </a>
-                    <a
-                      href={igLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-secondary"
-                    >
-                      Napisz na Instagramie
+                    <a href={mailLink} className="btn-secondary">
+                      Wolisz e-mail?
                     </a>
                   </div>
                   <p className="mt-4 text-xs text-muted">
-                    Nie otworzyło się? Napisz na {CONTACT.email}
+                    Wolisz mail? Napisz na {CONTACT.email}
                   </p>
                 </div>
               )}
