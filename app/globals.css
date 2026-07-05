@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Semantic color tokens — "Trust & Authority" palette (warm orange + slate).
+     Stored as RGB channels so Tailwind opacity modifiers (bg-primary/10) work. */
+  --color-bg: 255 247 237; /* warm cream page background */
+  --color-surface: 255 255 255; /* cards */
+  --color-fg: 15 23 42; /* slate-900 text */
+  --color-muted-fg: 71 85 105; /* slate-600 secondary text */
+  --color-border: 240 221 206; /* warm hairline */
+  --color-primary: 234 88 12; /* action orange */
+  --color-primary-hover: 194 65 12; /* darker on hover */
+  --color-on-primary: 255 255 255;
+  --color-accent: 37 99 235; /* trust blue, used sparingly */
+  --color-ok: 22 163 74; /* success green */
+  --color-night: 11 18 32; /* deep slate for dark sections */
+  --color-night-soft: 19 28 46;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-fg));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(var(--color-primary));
+    color: #fff;
+  }
+
+  /* Visible, on-brand focus rings for keyboard users. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-tight {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary;
+  }
+
+  /* Primary call-to-action — the single high-contrast action colour on the page. */
+  .btn-primary {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-semibold text-primary-fg shadow-cta transition-all duration-200 hover:bg-primary-hover hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99];
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-line bg-surface px-6 text-base font-semibold text-ink shadow-soft transition-all duration-200 hover:border-ink/20 hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 text-base font-semibold text-ink transition-colors duration-200 hover:text-primary;
+  }
+
+  .btn-wa {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:brightness-95 hover:-translate-y-0.5;
+  }
+}
+
+/* Scroll reveal — subtle, and fully disabled for reduced-motion users. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-fade-up {
+    animation: none !important;
+  }
+}
