@@ -6,7 +6,7 @@
 export const CONTACT = {
   brand: "Sitelab Warsaw",
   instagram: "warsaw.sitelab", // without the @
-  email: "sitelab.warsaw@google.com",
+  email: "sitelab.warsaw@gmail.com",
   city: "Warszawa",
   weeklySlots: 3,
 };
