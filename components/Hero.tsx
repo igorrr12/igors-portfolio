@@ -1,94 +1,100 @@
-import { EXAMPLES } from "@/lib/content";
-import { BrowserFrame } from "./BrowserFrame";
-import { CompareSlider } from "./CompareSlider";
-import { ArrowRight, Bolt, Check, MapPin, Star } from "./icons";
-
-const hero = EXAMPLES[0];
+import { HERO, STATS } from "@/lib/content";
+import { Artboard } from "./Artboard";
+import { Magnetic } from "./Magnetic";
+import { Reveal } from "./Reveal";
+import { ArrowRight } from "./icons";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* soft decorative glow, purely aesthetic */}
+    <section id="top" className="grain relative overflow-hidden bg-ink">
+      {/* Ambient blueprint canvas, faded at the edges */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 right-[-10%] h-[520px] w-[520px] rounded-full bg-primary/10 blur-3xl"
+        className="bp-grid bp-drift absolute inset-0 [mask-image:radial-gradient(120%_90%_at_60%_10%,black_35%,transparent_78%)]"
       />
+      {/* A single soft navy glow behind the artboard */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-40 h-[420px] w-[420px] rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute right-[-12%] top-[-10%] h-[560px] w-[560px] rounded-full bg-navy/50 blur-3xl"
       />
 
-      <div className="container-tight relative grid items-center gap-12 pb-8 pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pb-16 lg:pt-20">
+      <div className="container-tight relative grid items-center gap-12 pb-16 pt-14 lg:grid-cols-[1.02fr_1fr] lg:gap-16 lg:pb-24 lg:pt-24">
         {/* Copy */}
-        <div className="animate-fade-up">
-          <span className="eyebrow">
-            <MapPin className="h-3.5 w-3.5" />
-            Strony dla lokalnych firm w Warszawie
-          </span>
+        <div>
+          <Reveal>
+            <span className="eyebrow">{HERO.eyebrow}</span>
+          </Reveal>
 
-          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
-            Więcej rezerwacji, telefonów i{" "}
-            <span className="relative whitespace-nowrap text-primary">
-              klientów
-              <svg
-                aria-hidden
-                viewBox="0 0 200 12"
-                className="absolute -bottom-1.5 left-0 h-2.5 w-full text-primary/40"
-                preserveAspectRatio="none"
-              >
-                <path d="M2 8c40-6 156-6 196 0" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-              </svg>
-            </span>{" "}
-            z Twojej okolicy.
-          </h1>
+          <Reveal delay={80}>
+            <h1 className="mt-6 font-display text-[2.65rem] font-semibold leading-[1.04] tracking-[-0.02em] text-white sm:text-6xl lg:text-[4.1rem]">
+              {HERO.titleA}
+              <br />
+              <span className="text-slate">
+                Projekt w <span className="text-white">24h</span>, online w{" "}
+                <span className="relative inline-block whitespace-nowrap text-flame">
+                  {/* Inline selection box: the one word that matters is "selected" */}
+                  <span aria-hidden className="sel-box -inset-x-2 -inset-y-1" />
+                  <span aria-hidden className="sel-handle -left-3 -top-2" />
+                  <span aria-hidden className="sel-handle -right-3 -top-2" />
+                  <span aria-hidden className="sel-handle -bottom-2 -left-3" />
+                  <span aria-hidden className="sel-handle -bottom-2 -right-3" />
+                  72h
+                </span>
+                .
+              </span>
+            </h1>
+          </Reveal>
 
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-            Nowoczesna strona dla Twojej firmy, gotowa w 72 godziny. Zaprojektowana tak, żeby
-            zamieniać osoby, które Cię znajdą, w realne rezerwacje i telefony.
-          </p>
+          <Reveal delay={160}>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate">{HERO.sub}</p>
+          </Reveal>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#projekt" className="btn-primary">
-              Odbierz darmowy projekt
-              <ArrowRight className="h-5 w-5" />
-            </a>
-            <a href="#przyklady" className="btn-secondary">
-              Zobacz przykłady
-            </a>
-          </div>
+          <Reveal delay={240}>
+            <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+              <Magnetic>
+                <a href="#projekt" className="btn-flame">
+                  {HERO.ctaPrimary}
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Magnetic>
+              <a href="#metamorfozy" className="btn-line">
+                {HERO.ctaSecondary}
+              </a>
+            </div>
+          </Reveal>
 
-          <p className="mt-3.5 text-sm font-medium text-muted">
-            Darmowy projekt, bez zobowiązań, gotowy w 24 godziny.
-          </p>
-
-          <ul className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-ink">
-            <li className="flex items-center gap-1.5">
-              <Check className="h-4 w-4 text-primary" /> Płacisz po akceptacji
-            </li>
-            <li className="flex items-center gap-1.5">
-              <Bolt className="h-4 w-4 text-primary" /> Gotowe w 72h
-            </li>
-            <li className="flex items-center gap-1.5">
-              <Star className="h-4 w-4 text-primary" /> Realne metamorfozy niżej
-            </li>
-          </ul>
+          <Reveal delay={320}>
+            <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.14em] text-slate/80">
+              0 zł zaliczki · odpowiadam tego samego dnia
+            </p>
+          </Reveal>
         </div>
 
-        {/* Interactive proof, right in the hero */}
-        <div className="animate-fade-up lg:pl-4" style={{ animationDelay: "120ms" }}>
-          <BrowserFrame url="fryzjerpulawska.pl">
-            <CompareSlider
-              beforeSrc={hero.beforeSrc}
-              afterSrc={hero.afterSrc}
-              beforeAlt={`${hero.name}, stara strona przed metamorfozą`}
-              afterAlt={`${hero.name}, nowa strona po metamorfozie`}
-              priority
-            />
-          </BrowserFrame>
-          <p className="mt-3 text-center text-sm font-medium text-muted">
-            <span className="font-semibold text-ink">Przeciągnij suwak</span> i zobacz różnicę.
-            Prawdziwa metamorfoza, {hero.name}.
-          </p>
+        {/* The live canvas */}
+        <Reveal delay={200} from="right">
+          <Artboard />
+        </Reveal>
+      </div>
+
+      {/* Trust strip: the offer's spine in four numbers */}
+      <div className="relative border-t border-navy-line/40">
+        <div className="container-tight grid grid-cols-2 md:grid-cols-4">
+          {STATS.map((s, i) => (
+            <Reveal
+              key={s.label}
+              delay={i * 70}
+              className={`flex flex-col gap-1 border-navy-line/40 py-7 pl-6 ${
+                i > 0 ? "md:border-l" : ""
+              } ${i % 2 === 1 ? "border-l md:border-l" : ""}`}
+            >
+              <span className="font-display text-2xl font-semibold text-white sm:text-3xl">
+                {s.value}
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate">
+                {s.label}
+              </span>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

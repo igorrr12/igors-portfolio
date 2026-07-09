@@ -1,66 +1,73 @@
 import { INCLUDED } from "@/lib/content";
+import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
-import { ArrowRight, Bolt, Check, Shield } from "./icons";
+import { ArrowRight, Check } from "./icons";
 
 export function Offer() {
   return (
-    <section id="oferta" className="scroll-mt-20 bg-surface py-16 sm:py-20">
+    <section id="oferta" className="relative scroll-mt-16 bg-paper pb-20 pt-4 text-ink sm:pb-28">
       <div className="container-tight">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Oferta</span>
-          <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
-            Co dostajesz i ile to kosztuje
+        <Reveal className="max-w-2xl">
+          <span className="eyebrow !text-flame-deep">Oferta</span>
+          <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.015em] sm:text-5xl">
+            Jedna oferta. Wszystko w cenie.
           </h2>
-          <p className="mt-4 text-lg text-muted">
-            Jedna, konkretna oferta. Bez pakietów, o których nie masz czasu czytać.
+          <p className="mt-4 text-lg text-slate-deep">
+            Bez pakietów, o których nie masz czasu czytać. Konkretna strona, która ma przynosić
+            klientów.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-stretch">
-          {/* What's included */}
-          <Reveal className="rounded-3xl border border-line bg-bg p-7 sm:p-9">
-            <h3 className="font-display text-xl font-bold text-ink">W cenie masz wszystko, co potrzebne</h3>
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-stretch">
+          {/* Spec sheet: what's included */}
+          <Reveal guide className="rounded-2xl border border-ink/10 bg-white p-7 shadow-card sm:p-9">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-deep">
+              specyfikacja · w cenie
+            </p>
             <ul className="mt-6 grid gap-4">
-              {INCLUDED.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
-                    <Check className="h-4 w-4" />
+              {INCLUDED.map((item, i) => (
+                <Reveal key={item} as="li" delay={i * 60} className="flex items-start gap-3.5">
+                  <span className="mt-[3px] grid h-5 w-5 shrink-0 place-items-center border border-flame bg-flame/10 text-flame-deep">
+                    <Check className="h-3.5 w-3.5" style={{ width: 14, height: 14 }} />
                   </span>
-                  <span className="text-[15px] leading-snug text-ink">{item}</span>
-                </li>
+                  <span className="text-[15px] leading-snug">{item}</span>
+                </Reveal>
               ))}
             </ul>
           </Reveal>
 
-          {/* Price + speed */}
-          <Reveal className="flex flex-col rounded-3xl border border-primary/25 bg-gradient-to-b from-[#fff3ea] to-surface p-7 shadow-card sm:p-9">
-            <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-              <Bolt className="h-4.5 w-4.5" />
-              Gotowe w 72 godziny
-            </div>
-
-            <div className="mt-5">
-              <p className="text-sm font-medium text-muted">Strona wizytówka / one-page</p>
-              <p className="mt-1 font-display text-4xl font-extrabold text-ink">
-                od 1200 zł
+          {/* Price panel, ink card */}
+          <Reveal delay={120} guide className="relative overflow-hidden rounded-2xl bg-ink p-7 text-white shadow-card-dark sm:p-9">
+            <div aria-hidden className="bp-grid-fine absolute inset-0 opacity-60" />
+            <div className="relative flex h-full flex-col">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate">
+                wycena · strona wizytówka
               </p>
-              <p className="mt-1 text-sm text-muted">jednorazowo, bez ukrytych kosztów</p>
+
+              <p className="mt-6 font-display text-5xl font-semibold tracking-tight">
+                399 <span className="text-3xl">zł</span>
+              </p>
+              <p className="mt-2 text-sm text-slate">jednorazowo, bez ukrytych kosztów</p>
+
+              <p className="mt-6 rounded-xl border border-navy-line/60 bg-white/[0.03] px-4 py-3.5 text-sm leading-relaxed text-slate">
+                Strona z rezerwacją online, menu lub sklepem? Wycenę podam po darmowym projekcie,
+                zawsze prostym językiem.
+              </p>
+
+              <p className="mt-6 flex items-center gap-2.5 text-sm font-semibold text-white">
+                <span className="grid h-5 w-5 place-items-center border border-flame bg-flame/15 text-flame">
+                  <Check className="h-3.5 w-3.5" style={{ width: 14, height: 14 }} />
+                </span>
+                Płacisz dopiero, gdy zaakceptujesz projekt.
+              </p>
+
+              <Magnetic className="mt-8 w-full">
+                <a href="#projekt" className="btn-flame w-full">
+                  Odbierz darmowy projekt
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Magnetic>
             </div>
-
-            <p className="mt-5 rounded-2xl bg-surface/70 px-4 py-3 text-sm leading-relaxed text-muted">
-              Strona z rezerwacją online, menu lub sklepem? Wycenę podam po darmowym projekcie,
-              zawsze prostym językiem.
-            </p>
-
-            <div className="mt-5 flex items-center gap-2 text-sm font-medium text-ink">
-              <Shield className="h-5 w-5 text-ok" />
-              Płacisz dopiero, gdy zaakceptujesz projekt.
-            </div>
-
-            <a href="#projekt" className="btn-primary mt-6 w-full">
-              Odbierz darmowy projekt
-              <ArrowRight className="h-5 w-5" />
-            </a>
           </Reveal>
         </div>
       </div>

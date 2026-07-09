@@ -2,21 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ────────────────────────────────────────────────────────────
+   Live Design Canvas — global system
+   Palette: ink #080B12 · navy #0C2547 · paper #F4F6F9 · flame #FF6A2C
+   Flame is functional: it means "selected / active", like a design tool.
+   ──────────────────────────────────────────────────────────── */
+
 :root {
-  /* Semantic color tokens — "Trust & Authority" palette (warm orange + slate).
-     Stored as RGB channels so Tailwind opacity modifiers (bg-primary/10) work. */
-  --color-bg: 255 247 237; /* warm cream page background */
-  --color-surface: 255 255 255; /* cards */
-  --color-fg: 15 23 42; /* slate-900 text */
-  --color-muted-fg: 71 85 105; /* slate-600 secondary text */
-  --color-border: 240 221 206; /* warm hairline */
-  --color-primary: 234 88 12; /* action orange */
-  --color-primary-hover: 194 65 12; /* darker on hover */
-  --color-on-primary: 255 255 255;
-  --color-accent: 37 99 235; /* trust blue, used sparingly */
-  --color-ok: 22 163 74; /* success green */
-  --color-night: 11 18 32; /* deep slate for dark sections */
-  --color-night-soft: 19 28 46;
+  /* The design is a deliberate single-theme composition (its own dark/light
+     rhythm). "only light" opts out of Chrome's Auto Dark Mode, which would
+     otherwise invert the paper sections for Android users in dark mode. */
+  color-scheme: only light;
+
+  --ink: #080b12;
+  --navy: #0c2547;
+  --navy-line: #1c3a63;
+  --paper: #f4f6f9;
+  --flame: #ff6a2c;
+  --slate: #8da0b8;
 }
 
 @layer base {
@@ -25,76 +28,330 @@
   }
 
   body {
-    background-color: rgb(var(--color-bg));
-    color: rgb(var(--color-fg));
+    background-color: var(--ink);
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   ::selection {
-    background: rgb(var(--color-primary));
-    color: #fff;
+    background: var(--flame);
+    color: var(--ink);
   }
 
-  /* Visible, on-brand focus rings for keyboard users. */
   :focus-visible {
-    outline: 2px solid rgb(var(--color-primary));
+    outline: 2px solid var(--flame);
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: 2px;
   }
 }
 
 @layer components {
   .container-tight {
-    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
   }
 
+  /* Mono eyebrow — the "layer name" of each section. */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary;
+    @apply inline-flex items-center gap-2.5 font-mono text-[0.8125rem] font-medium uppercase tracking-[0.18em] text-flame;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-[7px] w-[7px] border border-flame;
   }
 
-  /* Primary call-to-action — the single high-contrast action colour on the page. */
-  .btn-primary {
-    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-semibold text-primary-fg shadow-cta transition-all duration-200 hover:bg-primary-hover hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99];
+  /* Primary action — flame block, near-black text (7.8:1). */
+  .btn-flame {
+    @apply relative inline-flex min-h-[54px] items-center justify-center gap-2.5 bg-flame px-8 font-sans text-base font-bold text-ink shadow-cta transition-all duration-200 ease-out hover:bg-flame-hover active:scale-[0.98];
+    border-radius: 12px;
   }
 
-  .btn-secondary {
-    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-line bg-surface px-6 text-base font-semibold text-ink shadow-soft transition-all duration-200 hover:border-ink/20 hover:-translate-y-0.5;
+  /* Quiet secondary on dark. */
+  .btn-line {
+    @apply inline-flex min-h-[54px] items-center justify-center gap-2.5 border border-navy-line bg-transparent px-7 font-sans text-base font-semibold text-white transition-all duration-200 ease-out hover:border-flame hover:text-flame;
+    border-radius: 12px;
   }
 
-  .btn-ghost {
-    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 text-base font-semibold text-ink transition-colors duration-200 hover:text-primary;
+  /* Quiet secondary on light. */
+  .btn-line-light {
+    @apply inline-flex min-h-[54px] items-center justify-center gap-2.5 border border-ink/15 bg-transparent px-7 font-sans text-base font-semibold text-ink transition-all duration-200 ease-out hover:border-flame hover:text-flame-deep;
+    border-radius: 12px;
   }
 
-  /* Instagram DM button — brand gradient starts on our orange, so it ties in. */
-  .btn-ig {
-    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-5 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:brightness-105 hover:-translate-y-0.5;
-    background-image: linear-gradient(135deg, #f58529 0%, #dd2a7b 55%, #8134af 100%);
+  /* Animated underline wipe for inline links. */
+  .link-wipe {
+    @apply relative;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: left calc(100% - 0.05em);
+    background-repeat: no-repeat;
+    transition: background-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-wipe:hover {
+    background-size: 100% 1.5px;
   }
 }
 
-/* Scroll reveal — subtle, and fully disabled for reduced-motion users. */
-.reveal {
+/* ── Blueprint grid ─────────────────────────────────────────── */
+
+.bp-grid {
+  background-image: linear-gradient(rgba(28, 58, 99, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 58, 99, 0.28) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bp-grid-fine {
+  background-image: linear-gradient(rgba(28, 58, 99, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 58, 99, 0.16) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Light-section grid, barely there. */
+.bp-grid-paper {
+  background-image: linear-gradient(rgba(12, 37, 71, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 37, 71, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Slow ambient drift for dark canvases. */
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+.bp-drift {
+  animation: grid-drift 14s linear infinite;
+}
+
+/* Fine film grain on dark sections (very low, anti-flat). */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ── Selection language (the signature) ─────────────────────── */
+
+/* Dashed flame selection box with 4 corner handles. */
+.sel-box {
+  position: absolute;
+  border: 1.5px dashed var(--flame);
+  pointer-events: none;
+}
+.sel-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+  border: 1.5px solid var(--flame);
+}
+
+/* ── Scroll reveal: elements snap into place ────────────────── */
+
+/* No will-change here: keeping it permanently on every revealed element
+   forces dozens of long-lived compositor layers, which both wastes memory
+   and can misrender on constrained GPUs. Transform+opacity transitions
+   composite fine without the hint. */
+.rv {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
+  transform: translateY(26px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.22, 1.2, 0.36, 1);
+  transition-delay: var(--rv-delay, 0ms);
 }
-.reveal.is-visible {
+.rv-left {
+  transform: translateX(-32px);
+}
+.rv-right {
+  transform: translateX(32px);
+}
+.rv.in {
   opacity: 1;
   transform: none;
 }
+
+/* Orange guide line that flashes as a card snaps in. */
+.rv-guide {
+  position: relative;
+}
+.rv-guide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 1.5px;
+  background: var(--flame);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.rv-guide.in::after {
+  animation: guide-flash 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--rv-delay, 0ms);
+}
+@keyframes guide-flash {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  35% {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+/* ── Hero: the canvas assembles itself ──────────────────────── */
+
+/* Wireframe blocks drop + snap into the artboard. */
+@keyframes blk-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.98);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(3px) scale(1.003);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.blk {
+  opacity: 0;
+  animation: blk-in 0.55s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+/* Wireframe dashes fade out as the block "renders". */
+@keyframes wf-out {
+  to {
+    opacity: 0;
+  }
+}
+.wf {
+  animation: wf-out 0.45s ease-out both;
+}
+
+/* Rendered content fades in over the wireframe. */
+@keyframes rd-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.rd {
+  opacity: 0;
+  animation: rd-in 0.5s ease-out both;
+}
+
+/* Selection box pops around the hero block mid-sequence. */
+@keyframes sel-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sel-anim {
+  opacity: 0;
+  animation: sel-in 0.35s ease-out both;
+}
+
+/* The little sitelab cursor travels across the artboard. */
+@keyframes cursor-path {
+  0% {
+    opacity: 0;
+    transform: translate(150px, 190px);
+  }
+  10% {
+    opacity: 1;
+  }
+  38% {
+    transform: translate(36px, 66px);
+  }
+  62% {
+    transform: translate(210px, 120px);
+  }
+  88% {
+    transform: translate(96px, 150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(104px, 156px);
+  }
+}
+.cursor-anim {
+  animation: cursor-path 3.2s cubic-bezier(0.45, 0, 0.25, 1) 0.9s both;
+}
+
+/* Soft flame glow pulses (final CTA ambience). */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+.glow-pulse {
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+
+/* ── Reduced motion: everything is instantly legible ────────── */
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .reveal {
+  .rv,
+  .rv-left,
+  .rv-right {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
-  .animate-fade-up {
+  .rv-guide::after {
+    animation: none !important;
+  }
+  .blk,
+  .rd {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .wf {
+    opacity: 0 !important;
+    animation: none !important;
+  }
+  .sel-anim {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .cursor-anim {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: translate(104px, 156px) !important;
+  }
+  .bp-drift,
+  .glow-pulse {
     animation: none !important;
   }
 }

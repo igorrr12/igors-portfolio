@@ -1,59 +1,47 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * "Live Design Canvas" system.
+ * Palette is deliberately minimal: ink (navy-black), navy, paper, one flame accent.
+ * Flame = the "selected / active" color, used like a design tool's selection highlight.
+ */
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        bg: "rgb(var(--color-bg) / <alpha-value>)",
-        surface: "rgb(var(--color-surface) / <alpha-value>)",
-        ink: "rgb(var(--color-fg) / <alpha-value>)",
-        muted: "rgb(var(--color-muted-fg) / <alpha-value>)",
-        line: "rgb(var(--color-border) / <alpha-value>)",
-        accent: "rgb(var(--color-accent) / <alpha-value>)",
-        ok: "rgb(var(--color-ok) / <alpha-value>)",
-        primary: {
-          DEFAULT: "rgb(var(--color-primary) / <alpha-value>)",
-          hover: "rgb(var(--color-primary-hover) / <alpha-value>)",
-          fg: "rgb(var(--color-on-primary) / <alpha-value>)",
+        ink: "#080B12", // near-black with a navy bias, main dark canvas
+        "ink-soft": "#0C1420", // raised surfaces on dark
+        navy: "#0C2547", // deep brand navy, gradients + panels
+        "navy-line": "#1C3A63", // blueprint grid + borders on dark
+        paper: "#F4F6F9", // light section ground
+        slate: {
+          DEFAULT: "#8DA0B8", // muted text on dark
+          deep: "#51627A", // muted text on light
         },
-        night: {
-          DEFAULT: "rgb(var(--color-night) / <alpha-value>)",
-          soft: "rgb(var(--color-night-soft) / <alpha-value>)",
+        flame: {
+          DEFAULT: "#FF6A2C", // the single accent: selection / action
+          hover: "#FF7E48",
+          deep: "#E5511A",
         },
       },
       fontFamily: {
-        sans: ["var(--font-work-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-outfit)", "system-ui", "sans-serif"],
-      },
-      spacing: {
-        "4.5": "1.125rem",
-        "13": "3.25rem",
-      },
-      borderRadius: {
-        "4xl": "2rem",
-      },
-      boxShadow: {
-        soft: "0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.12)",
-        card: "0 2px 4px rgba(15,23,42,0.04), 0 18px 40px -20px rgba(15,23,42,0.18)",
-        cta: "0 10px 24px -8px rgba(234,88,12,0.55)",
-        float: "0 24px 60px -24px rgba(15,23,42,0.35)",
-      },
-      keyframes: {
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        shimmer: {
-          "0%": { transform: "translateX(-120%)" },
-          "100%": { transform: "translateX(120%)" },
-        },
-      },
-      animation: {
-        "fade-up": "fade-up 0.5s ease-out both",
+        display: ["var(--font-clash)", "system-ui", "sans-serif"],
+        sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
       },
       maxWidth: {
-        content: "1180px",
+        content: "1200px",
+      },
+      boxShadow: {
+        card: "0 2px 6px rgba(8,11,18,0.06), 0 24px 48px -24px rgba(8,11,18,0.25)",
+        "card-dark": "0 2px 6px rgba(0,0,0,0.4), 0 32px 64px -32px rgba(0,0,0,0.6)",
+        cta: "0 12px 32px -10px rgba(255,106,44,0.5)",
+      },
+      transitionTimingFunction: {
+        // Slight overshoot: elements "snap" into place like in a design tool.
+        snap: "cubic-bezier(0.22, 1.2, 0.36, 1)",
+        out: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },

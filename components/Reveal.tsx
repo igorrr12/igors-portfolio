@@ -5,16 +5,28 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 type RevealProps = {
   children: ReactNode;
   className?: string;
-  /** Stagger delay in ms for lists. */
+  /** Stagger delay in ms (use ~70ms steps for cascades). */
   delay?: number;
-  as?: "div" | "li" | "section";
+  /** Entry direction: rise (default) or slide from a side. */
+  from?: "up" | "left" | "right";
+  /** Flash the orange alignment guide under the element as it snaps in. */
+  guide?: boolean;
+  as?: "div" | "li" | "section" | "article" | "span";
 };
 
 /**
- * Subtle fade-up on scroll. Adds `is-visible` once the element enters view.
- * Motion is fully disabled for `prefers-reduced-motion` via globals.css.
+ * Snap-reveal: element rises/slides in with a slight overshoot (design-tool
+ * "snap into place"), optionally flashing an orange guide line underneath.
+ * Fully disabled under prefers-reduced-motion via globals.css.
  */
-export function Reveal({ children, className = "", delay = 0, as = "div" }: RevealProps) {
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  from = "up",
+  guide = false,
+  as = "div",
+}: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -34,18 +46,20 @@ export function Reveal({ children, className = "", delay = 0, as = "div" }: Reve
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   const Tag = as as any;
+  const dir = from === "left" ? "rv-left" : from === "right" ? "rv-right" : "";
+
   return (
     <Tag
       ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+      className={`rv ${dir} ${guide ? "rv-guide" : ""} ${visible ? "in" : ""} ${className}`}
+      style={delay ? ({ "--rv-delay": `${delay}ms` } as React.CSSProperties) : undefined}
     >
       {children}
     </Tag>
