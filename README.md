@@ -10,7 +10,7 @@ Open [`lib/config.ts`](lib/config.ts) and set your real details:
 
 ```ts
 instagram: "warsaw.sitelab",          // without the @ (this is the contact channel)
-email: "sitelab.warsaw@google.com",
+email: "igor@getsitelab.pl",
 weeklySlots: 3,                       // shown in the urgency section
 ```
 
