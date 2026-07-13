@@ -29,16 +29,20 @@ export function ProgressLine() {
     // Transform, not `top`: keeps the dot compositor-driven and jitter-free.
     const setY = gsap.quickSetter(dot, "y", "px");
     let navH = nav.offsetHeight;
+    let max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
 
-    const st = ScrollTrigger.create({
-      start: 0,
-      end: () => document.documentElement.scrollHeight - window.innerHeight,
-      onUpdate: (self) => setY(self.progress * navH - 4.5),
-    });
+    // Dot position = scrollY / max, on the exact same `max` the tick
+    // ratios use. (A ScrollTrigger-derived progress is NOT safe here: its
+    // range can be captured while pins are reverted, which shortens it by
+    // the pin distances and makes the dot run ahead of the ticks.)
+    const position = () => {
+      const p = Math.min(1, Math.max(0, window.scrollY / max));
+      setY(p * navH - 4.5);
+    };
 
     const measure = () => {
       navH = nav.offsetHeight;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const found = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-stop]")).map((el) => {
         const pin = ScrollTrigger.getAll().find((t) => t.trigger === el && t.vars.pin);
         const raw = pin ? pin.end : window.scrollY + el.getBoundingClientRect().top;
@@ -51,20 +55,21 @@ export function ProgressLine() {
         };
       });
       setStops(found);
-      setY(st.progress * navH - 4.5);
+      position();
     };
 
     // Measure after every refresh (pins laid out, spacers in the DOM) and
     // force one refresh now — this component mounts before the works
     // create their pin triggers, so the first natural refresh may predate
     // them. setTimeout (not rAF): rAF never fires in background tabs.
+    window.addEventListener("scroll", position, { passive: true });
     ScrollTrigger.addEventListener("refresh", measure);
     const timer = window.setTimeout(() => ScrollTrigger.refresh(), 0);
 
     return () => {
       clearTimeout(timer);
+      window.removeEventListener("scroll", position);
       ScrollTrigger.removeEventListener("refresh", measure);
-      st.kill();
     };
   }, []);
 
