@@ -8,7 +8,7 @@ export function Header() {
           <Logo />
         </a>
         <a href="#ksiega-gosci" className="link-under inline-flex min-h-[44px] items-center text-sm font-medium">
-          Księga gości
+          Kontakt
         </a>
       </div>
     </header>

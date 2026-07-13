@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const COVER = {
-  kicker: "Wystawa stała · Warszawa 2026",
+  kicker: "Warszawa 2026",
   /** Headline lines; `accent` overlaps the block as the oversized italic moment. */
   lines: ["Strony dla firm,", "które ogląda się"],
   accent: "jak sztukę",
