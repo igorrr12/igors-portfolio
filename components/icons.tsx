@@ -29,15 +29,6 @@ export function Check(props: IconProps) {
   );
 }
 
-export function ChevronsLeftRight(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="m9 7-5 5 5 5" />
-      <path d="m15 7 5 5-5 5" />
-    </svg>
-  );
-}
-
 export function Instagram(props: IconProps) {
   return (
     <svg {...base} {...props}>

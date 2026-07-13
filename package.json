@@ -2,7 +2,7 @@
   "name": "sitelab-warsaw",
   "version": "1.0.0",
   "private": true,
-  "description": "High-conversion landing page for Sitelab Warsaw — fast websites for local Warsaw businesses.",
+  "description": "Galeria Sitelab — editorial gallery landing page for Sitelab, a Warsaw web design studio.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

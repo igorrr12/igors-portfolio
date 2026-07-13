@@ -1,7 +1,11 @@
+import { Cover } from "@/components/Cover";
+import { CuratorNote } from "@/components/CuratorNote";
+import { Exhibition } from "@/components/Exhibition";
 import { Footer } from "@/components/Footer";
+import { GuestBook } from "@/components/GuestBook";
 import { Header } from "@/components/Header";
+import { Process } from "@/components/Process";
 import { ProgressLine } from "@/components/ProgressLine";
-import { WallLabel } from "@/components/WallLabel";
 
 export default function Home() {
   return (
@@ -9,12 +13,11 @@ export default function Home() {
       <Header />
       <ProgressLine />
       <main>
-        <section id="test-a" data-gallery-stop="Test A" className="gallery-frame flex min-h-screen flex-col justify-center">
-          <WallLabel caption="Sekcja testowa" title="Zażółć gęślą jaźń" />
-        </section>
-        <section id="test-b" data-gallery-stop="Test B" className="gallery-frame min-h-screen pt-24">
-          <WallLabel caption="Druga sekcja" title="Rytm i linia" />
-        </section>
+        <Cover />
+        <Exhibition />
+        <CuratorNote />
+        <Process />
+        <GuestBook />
       </main>
       <Footer />
     </>

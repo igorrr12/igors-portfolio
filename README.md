@@ -1,8 +1,9 @@
-# Sitelab Warsaw — landing page
+# Galeria Sitelab — landing page
 
-High-conversion, mobile-first landing page for **Sitelab Warsaw** (fast websites for local
-Warsaw businesses, delivered in 72h). Built with **Next.js 14 (App Router)**, **TypeScript** and
-**Tailwind CSS**. Optimized for one-click deploy on **Vercel**.
+Editorial, gallery-style landing page for **Sitelab** (websites for local Warsaw businesses):
+an ivory "exhibition" of concept works with scroll-driven GSAP animation. Built with
+**Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS** and **GSAP ScrollTrigger**.
+Design spec: [`docs/superpowers/specs/2026-07-13-gallery-redesign-design.md`](docs/superpowers/specs/2026-07-13-gallery-redesign-design.md).
 
 ## Before you go live — edit ONE file
 
