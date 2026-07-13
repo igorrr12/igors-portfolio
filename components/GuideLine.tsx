@@ -8,43 +8,79 @@ import { useLayoutEffect, useRef } from "react";
  * through the exhibition, top to bottom. It sits behind the content, so
  * artboards and text pass over it like works hung over a wire.
  *
- * pathLength={1} makes dash math proportional on the stretched SVG, and
- * the draw is driven by a plain scroll listener (the same mechanism as
- * the wayfinder dot). Decorative; reduced-motion users see it fully drawn.
+ * Everything is computed in real pixels: the path is generated from the
+ * page's actual size (rebuilt on resize), so getTotalLength() and the
+ * dash draw are exact in every browser — no viewBox stretching, no
+ * pathLength normalization, none of the quirks those interact with.
+ * Decorative; reduced-motion users see it fully drawn.
  */
 export function GuideLine() {
+  const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
 
   useLayoutEffect(() => {
+    const svg = svgRef.current!;
     const path = pathRef.current!;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let len = 0;
 
-    path.setAttribute("stroke-dasharray", "1 1");
     const update = () => {
       const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const p = Math.min(1, Math.max(0, window.scrollY / max));
-      path.setAttribute("stroke-dashoffset", String(1 - p));
+      path.setAttribute("stroke-dashoffset", String(len * (1 - p)));
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    const build = () => {
+      const w = svg.clientWidth;
+      const h = svg.clientHeight;
+      if (!w || !h) return;
+      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+
+      // Serpentine down the middle: one turn every ~1.7 viewport heights,
+      // swinging a modest amplitude either side of center.
+      const cx = w / 2;
+      const amp = Math.min(w * 0.14, 260);
+      const step = Math.max(window.innerHeight * 1.7, 700);
+      let d = `M ${cx} 0`;
+      let y = 0;
+      let side = -1;
+      let first = true;
+      while (y < h - 1) {
+        const yNext = Math.min(y + step, h);
+        const x = Math.round(cx + side * amp);
+        d += first
+          ? ` C ${cx} ${Math.round(y + step / 2)} ${x} ${Math.round(yNext - step / 2)} ${x} ${Math.round(yNext)}`
+          : ` S ${x} ${Math.round(yNext - step / 2)} ${x} ${Math.round(yNext)}`;
+        first = false;
+        side = -side;
+        y = yNext;
+      }
+      path.setAttribute("d", d);
+      len = path.getTotalLength();
+      if (!reduced) {
+        path.setAttribute("stroke-dasharray", String(len));
+        update();
+      }
+    };
+
+    build();
+    const ro = new ResizeObserver(build);
+    ro.observe(svg);
+    if (!reduced) window.addEventListener("scroll", update, { passive: true });
+
     return () => {
+      ro.disconnect();
       window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
     };
   }, []);
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-      <svg className="h-full w-full" viewBox="0 0 100 1000" preserveAspectRatio="none" fill="none">
+      <svg ref={svgRef} className="h-full w-full" fill="none">
         <path
           ref={pathRef}
-          pathLength={1}
-          d="M 50 0 C 50 30 38 50 38 80 S 62 130 62 170 S 36 220 36 265 S 64 315 64 360 S 38 410 38 455 S 62 505 62 550 S 37 600 37 645 S 63 695 63 740 S 38 790 38 835 S 60 885 60 925 S 50 965 50 1000"
           stroke="var(--accent)"
           strokeWidth="1.5"
-          vectorEffect="non-scaling-stroke"
           strokeLinecap="round"
           className="opacity-60"
         />
