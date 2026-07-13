@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
-type Stop = { id: string; label: string; ratio: number };
+type Stop = { id: string; label: string; ratio: number; target: number };
 
 /**
  * The exhibition wayfinder: a 1px line at the right viewport edge with
@@ -11,6 +11,12 @@ type Stop = { id: string; label: string; ratio: number };
  * the "you are here" marker. The dot mirrors scroll position 1:1 (no
  * smoothing), so it is position feedback, not decoration — it also runs
  * under reduced motion, matching the spec's static-progress allowance.
+ *
+ * Ticks are placed on the same scale the dot moves on (scrollY / max),
+ * measured AFTER ScrollTrigger refresh so pin-spacer heights count. For
+ * pinned works the tick/click target is the pin's end — the moment the
+ * unveil is complete — so clicking a tick always lands on the fully
+ * visible work and the dot settles exactly on the tick.
  */
 export function ProgressLine() {
   const dotRef = useRef<HTMLSpanElement>(null);
@@ -21,12 +27,18 @@ export function ProgressLine() {
     const setY = gsap.quickSetter(dot, "top", "%");
 
     const measure = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const found = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-stop]")).map((el) => ({
-        id: el.id,
-        label: el.dataset.galleryStop ?? el.id,
-        ratio: Math.min(1, Math.max(0, el.offsetTop / Math.max(1, max))),
-      }));
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const found = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-stop]")).map((el) => {
+        const pin = ScrollTrigger.getAll().find((t) => t.trigger === el && t.vars.pin);
+        const raw = pin ? pin.end : window.scrollY + el.getBoundingClientRect().top;
+        const target = Math.min(max, Math.max(0, Math.round(raw)));
+        return {
+          id: el.id,
+          label: el.dataset.galleryStop ?? el.id,
+          ratio: target / max,
+          target,
+        };
+      });
       setStops(found);
     };
 
@@ -35,10 +47,17 @@ export function ProgressLine() {
       end: () => document.documentElement.scrollHeight - window.innerHeight,
       onUpdate: (self) => setY(self.progress * 100),
     });
-    measure();
-    ScrollTrigger.addEventListener("refreshInit", measure);
+
+    // Measure after every refresh (pins laid out, spacers in the DOM) and
+    // force one refresh now — this component mounts before the works
+    // create their pin triggers, so the first natural refresh may predate
+    // them. setTimeout (not rAF): rAF never fires in background tabs.
+    ScrollTrigger.addEventListener("refresh", measure);
+    const timer = window.setTimeout(() => ScrollTrigger.refresh(), 0);
+
     return () => {
-      ScrollTrigger.removeEventListener("refreshInit", measure);
+      clearTimeout(timer);
+      ScrollTrigger.removeEventListener("refresh", measure);
       st.kill();
     };
   }, []);
@@ -55,7 +74,12 @@ export function ProgressLine() {
           href={`#${s.id}`}
           title={s.label}
           aria-label={s.label}
-          className="group absolute -right-[5px] grid h-[11px] w-[11px] place-items-center"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: s.target });
+            history.replaceState(null, "", `#${s.id}`);
+          }}
+          className="group absolute -right-[5px] grid h-[11px] w-[11px] -translate-y-1/2 place-items-center"
           style={{ top: `${s.ratio * 100}%` }}
         >
           <span className="h-[5px] w-[5px] rounded-full bg-stone transition-colors group-hover:bg-accent" />
