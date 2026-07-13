@@ -38,7 +38,7 @@ export const PLACARD = {
 
 export const PROCESS = {
   caption: "Proces",
-  title: "Od rozmowy do wernisażu",
+  title: "Od rozmowy do gotowej strony",
   steps: [
     {
       nr: "01",
