@@ -15,7 +15,7 @@ export const EXHIBITION = {
   caption: "Wystawa",
   title: "Trzy prace",
   /** Honest closing wall text. */
-  note: "Prace na tej wystawie to projekty koncepcyjne. Twoja strona powstaje tak samo: od charakteru Twojej firmy, nie od szablonu.",
+  note: "Prace na tej wystawie to projekty koncepcyjne dla prawdziwych warszawskich miejsc. Twoja strona powstaje tak samo: od charakteru Twojej firmy, nie od szablonu.",
 };
 
 export const CURATOR = {

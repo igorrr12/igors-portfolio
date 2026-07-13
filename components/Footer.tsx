@@ -16,7 +16,7 @@ export function Footer() {
           <a href={mailLink} className="link-under inline-flex min-h-[44px] items-center">
             {CONTACT.email}
           </a>
-          <p className="mt-2 text-xs text-white/40">© 2026 Sitelab — Warszawa</p>
+          <p className="mt-2 text-xs text-white/40">© {new Date().getFullYear()} Sitelab — Warszawa</p>
         </div>
       </div>
     </footer>

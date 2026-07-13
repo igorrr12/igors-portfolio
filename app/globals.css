@@ -4,7 +4,7 @@
 
 /* ────────────────────────────────────────────────────────────
    Galeria Sitelab — global system
-   Walls #F7F5F0 · ink #141311 · stone #8A857C · accent #FF6A2C
+   Walls #F7F5F0 · ink #141311 · stone #6E6961 · accent #FF6A2C
    Scroll animation lives in components via GSAP matchMedia;
    this file only holds the static gallery shell.
    ──────────────────────────────────────────────────────────── */
@@ -15,16 +15,14 @@
 
   --ivory: #f7f5f0;
   --ink: #141311;
-  --stone: #8a857c;
+  /* Warm grey darkened to ≥4.5:1 on ivory (WCAG AA for body copy). */
+  --stone: #6e6961;
   --line: rgba(20, 19, 17, 0.12);
   --accent: #ff6a2c;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
+  /* No CSS smooth-scroll: it fights ScrollTrigger's pinning on anchor jumps. */
   body {
     background-color: var(--ivory);
     color: var(--ink);
@@ -83,11 +81,5 @@
   }
   .link-under:hover::after {
     transform: scaleX(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
   }
 }

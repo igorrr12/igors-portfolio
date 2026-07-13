@@ -1,6 +1,7 @@
 "use client";
 
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import Image from "next/image";
+import { useLayoutEffect, useRef } from "react";
 import type { Work } from "@/lib/works";
 import { gsap } from "@/lib/gsap";
 
@@ -10,7 +11,7 @@ import { gsap } from "@/lib/gsap";
  * settles 0.97→1; the caption rises a beat later. Pin distance is
  * halved on mobile. Reduced motion: static, fully visible.
  */
-export function WorkFrame({ work, desktop, mobile }: { work: Work; desktop: ReactNode; mobile: ReactNode }) {
+export function WorkFrame({ work }: { work: Work }) {
   const rootRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -58,18 +59,20 @@ export function WorkFrame({ work, desktop, mobile }: { work: Work; desktop: Reac
       </span>
 
       <div className="gallery-frame relative">
-        <div data-frame className="relative md:pr-[22%]">
-          {/* Desktop artboard */}
-          <div className="aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.25)]">
-            {desktop}
-          </div>
-          {/* Mobile artboard, overlapping the desktop frame on md+ */}
-          <div className="mx-auto -mt-10 w-[46%] max-w-[220px] overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.3)] md:absolute md:-bottom-10 md:right-0 md:mx-0 md:mt-0 md:w-[26%]">
-            <div className="aspect-[9/19] w-full overflow-hidden">{mobile}</div>
+        <div data-frame className="relative">
+          <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.25)]">
+            <Image
+              src={work.image}
+              alt={work.alt}
+              fill
+              sizes="(min-width: 1240px) 1120px, 100vw"
+              className="object-cover"
+              quality={90}
+            />
           </div>
         </div>
 
-        <figcaption data-work-caption className="mt-12 md:mt-16 md:max-w-[70%]">
+        <figcaption data-work-caption className="mt-10 md:mt-12">
           <p className="caption">
             Nr {work.nr} — <span className="text-ink">„{work.name}”</span> · {work.sector} · {work.district}
           </p>

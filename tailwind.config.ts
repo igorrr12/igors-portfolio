@@ -13,7 +13,7 @@ const config: Config = {
       colors: {
         ivory: "#F7F5F0", // gallery walls
         ink: "#141311", // text + the one dark room (footer)
-        stone: "#8A857C", // museum captions
+        stone: "#6E6961", // museum captions + secondary copy (AA on ivory)
         line: "rgba(20,19,17,0.12)", // hairline rules
         accent: "#FF6A2C", // the logo dot
       },

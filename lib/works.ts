@@ -1,12 +1,10 @@
 // ─────────────────────────────────────────────────────────────
-//  The exhibition. Each entry is one framed work; the matching
-//  mockup component is registered in components/Exhibition.tsx.
+//  The exhibition. Each entry is one framed work: a concept
+//  redesign rendered to PNG (public/examples/*-after.png).
 // ─────────────────────────────────────────────────────────────
 
-export type WorkId = "restauracja" | "barber" | "kwiaciarnia";
-
 export type Work = {
-  id: WorkId;
+  id: string;
   /** Section anchor + ProgressLine tick target. */
   anchor: string;
   nr: string;
@@ -15,34 +13,43 @@ export type Work = {
   district: string;
   /** One-line curatorial note under the caption. */
   note: string;
+  /** Rendered concept design, 16:10. */
+  image: string;
+  alt: string;
 };
 
 export const WORKS: Work[] = [
   {
-    id: "restauracja",
+    id: "bambino",
     anchor: "praca-01",
     nr: "01",
-    name: "Złoty Widelec",
-    sector: "Restauracja",
+    name: "Bar Bambino",
+    sector: "Bar mleczny",
     district: "Śródmieście",
-    note: "Ciepło, apetyt i rezerwacja w zasięgu kciuka.",
+    note: "Domowe jedzenie jak za dawnych lat: ciepło, menu i ceny widoczne od progu.",
+    image: "/examples/bambino-after.png",
+    alt: "Projekt strony dla baru mlecznego Bar Bambino — ciepła, apetyczna strona główna z menu i cenami",
   },
   {
-    id: "barber",
+    id: "fryzjer",
     anchor: "praca-02",
     nr: "02",
-    name: "Antracyt",
-    sector: "Barbershop",
+    name: "Fryzjer Puławska",
+    sector: "Salon fryzjerski",
     district: "Mokotów",
-    note: "Ostry kontrast, cennik bez owijania, wizyta w dwa kliknięcia.",
+    note: "Klasyczne rzemiosło od 1946: mocny kontrast, cennik i rezerwacja w dwa kliknięcia.",
+    image: "/examples/fryzjer-after.png",
+    alt: "Projekt strony dla salonu Fryzjer Puławska — ciemna, elegancka strona z rezerwacją online",
   },
   {
-    id: "kwiaciarnia",
+    id: "julia",
     anchor: "praca-03",
     nr: "03",
-    name: "Pracownia Mila",
+    name: "Kwiaciarnia Julia",
     sector: "Kwiaciarnia",
-    district: "Żoliborz",
-    note: "Sklep od pierwszego spojrzenia: bukiety, ceny, dostawa tego samego dnia.",
+    district: "Warszawa",
+    note: "Kwiaty, które mówią bez słów: bukiety, ceny i dostawa tego samego dnia.",
+    image: "/examples/julia-after.png",
+    alt: "Projekt strony dla Kwiaciarni Julia — jasna, delikatna strona z bukietami i zamówieniem z dostawą",
   },
 ];
