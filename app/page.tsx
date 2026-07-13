@@ -1,16 +1,20 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ProgressLine } from "@/components/ProgressLine";
+import { WallLabel } from "@/components/WallLabel";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="gallery-frame flex min-h-screen flex-col justify-center gap-6">
-        <p className="caption caption-dot">Wystawa stała · Warszawa 2026</p>
-        <h1 className="font-display text-6xl font-medium">
-          Zażółć gęślą jaźń — <em>zażółć gęślą jaźń</em>
-        </h1>
-        <span className="rule" />
+      <ProgressLine />
+      <main>
+        <section id="test-a" data-gallery-stop="Test A" className="gallery-frame flex min-h-screen flex-col justify-center">
+          <WallLabel caption="Sekcja testowa" title="Zażółć gęślą jaźń" />
+        </section>
+        <section id="test-b" data-gallery-stop="Test B" className="gallery-frame min-h-screen pt-24">
+          <WallLabel caption="Druga sekcja" title="Rytm i linia" />
+        </section>
       </main>
       <Footer />
     </>
