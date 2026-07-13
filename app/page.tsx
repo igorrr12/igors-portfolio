@@ -1,4 +1,5 @@
 import { Cover } from "@/components/Cover";
+import { GuideLine } from "@/components/GuideLine";
 import { CuratorNote } from "@/components/CuratorNote";
 import { Exhibition } from "@/components/Exhibition";
 import { Footer } from "@/components/Footer";
@@ -12,7 +13,8 @@ export default function Home() {
     <>
       <Header />
       <ProgressLine />
-      <main>
+      <main className="relative">
+        <GuideLine />
         <Cover />
         <Exhibition />
         <CuratorNote />
