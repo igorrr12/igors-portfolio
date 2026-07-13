@@ -19,14 +19,25 @@ type Stop = { id: string; label: string; ratio: number; target: number };
  * visible work and the dot settles exactly on the tick.
  */
 export function ProgressLine() {
+  const navRef = useRef<HTMLElement>(null);
   const dotRef = useRef<HTMLSpanElement>(null);
   const [stops, setStops] = useState<Stop[]>([]);
 
   useLayoutEffect(() => {
+    const nav = navRef.current!;
     const dot = dotRef.current!;
-    const setY = gsap.quickSetter(dot, "top", "%");
+    // Transform, not `top`: keeps the dot compositor-driven and jitter-free.
+    const setY = gsap.quickSetter(dot, "y", "px");
+    let navH = nav.offsetHeight;
+
+    const st = ScrollTrigger.create({
+      start: 0,
+      end: () => document.documentElement.scrollHeight - window.innerHeight,
+      onUpdate: (self) => setY(self.progress * navH - 4.5),
+    });
 
     const measure = () => {
+      navH = nav.offsetHeight;
       const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const found = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-stop]")).map((el) => {
         const pin = ScrollTrigger.getAll().find((t) => t.trigger === el && t.vars.pin);
@@ -40,13 +51,8 @@ export function ProgressLine() {
         };
       });
       setStops(found);
+      setY(st.progress * navH - 4.5);
     };
-
-    const st = ScrollTrigger.create({
-      start: 0,
-      end: () => document.documentElement.scrollHeight - window.innerHeight,
-      onUpdate: (self) => setY(self.progress * 100),
-    });
 
     // Measure after every refresh (pins laid out, spacers in the DOM) and
     // force one refresh now — this component mounts before the works
@@ -64,6 +70,7 @@ export function ProgressLine() {
 
   return (
     <nav
+      ref={navRef}
       aria-label="Postęp zwiedzania"
       className="fixed right-3 top-1/2 z-40 h-[38vh] -translate-y-1/2 sm:right-6"
     >
@@ -85,10 +92,11 @@ export function ProgressLine() {
           <span className="h-[5px] w-[5px] rounded-full bg-stone transition-colors group-hover:bg-accent" />
         </a>
       ))}
+      {/* GSAP owns this element's transform (set on mount via measure). */}
       <span
         ref={dotRef}
         aria-hidden
-        className="absolute -right-[4px] top-0 h-[9px] w-[9px] -translate-y-1/2 rounded-full bg-accent"
+        className="absolute -right-[4px] top-0 h-[9px] w-[9px] rounded-full bg-accent"
       />
     </nav>
   );
