@@ -1,20 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-/** Display — Clash Display (Fontshare, self-hosted). Tight, confident. */
-const clash = localFont({
+/** Display — Gambetta (Fontshare, self-hosted). High-contrast editorial serif. */
+const gambetta = localFont({
   src: [
-    { path: "./fonts/ClashDisplay-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/ClashDisplay-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/ClashDisplay-700.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/Gambetta-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Gambetta-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Gambetta-Italic.woff2", weight: "400", style: "italic" },
   ],
-  variable: "--font-clash",
+  variable: "--font-gambetta",
   display: "swap",
 });
 
-/** Body — Satoshi (Fontshare, self-hosted). Warm-neutral, very legible. */
+/** Body — Satoshi (Fontshare, self-hosted). Quiet, very legible. */
 const satoshi = localFont({
   src: [
     { path: "./fonts/Satoshi-400.woff2", weight: "400", style: "normal" },
@@ -25,47 +24,39 @@ const satoshi = localFont({
   display: "swap",
 });
 
-/** Utility — JetBrains Mono for eyebrows, stats, measurement labels. */
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-jetbrains",
-  display: "swap",
-  weight: ["400", "500", "700"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://getsitelab.pl"),
-  title: "Sitelab Warsaw — strony dla lokalnych firm w Warszawie w 72h",
+  title: "Sitelab — pracownia stron internetowych · Warszawa",
   description:
-    "Nowoczesna, szybka strona dla Twojej firmy w Warszawie. Gotowa w 72 godziny. Odbierz darmowy projekt strony głównej w 24h, bez zobowiązań.",
+    "Galeria Sitelab: strony internetowe dla lokalnych firm w Warszawie. Darmowy projekt strony głównej w 24 h, gotowa strona w 72 h za 399 zł.",
   keywords: [
     "strony internetowe Warszawa",
     "strona dla firmy",
     "strona dla restauracji",
     "strona dla barbera",
     "strona dla salonu",
-    "tania strona internetowa",
+    "projekt strony internetowej",
   ],
   openGraph: {
-    title: "Nowa strona Twojej firmy. Projekt w 24h, online w 72h.",
+    title: "Sitelab — galeria stron dla warszawskich firm",
     description:
-      "Nowoczesne strony dla lokalnych firm w Warszawie. Darmowy projekt w 24 godziny, bez zobowiązań.",
+      "Strony dla firm, które ogląda się jak sztukę. Darmowy projekt w 24 godziny, bez zobowiązań.",
     type: "website",
     locale: "pl_PL",
-    siteName: "Sitelab Warsaw",
+    siteName: "Sitelab",
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080B12",
+  themeColor: "#F7F5F0",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pl" className={`${clash.variable} ${satoshi.variable} ${jetbrains.variable}`}>
+    <html lang="pl" className={`${gambetta.variable} ${satoshi.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );
