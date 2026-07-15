@@ -85,3 +85,55 @@ export const CONTACT_SECTION = {
   openInstagram: "Otwórz Instagram",
   preferEmail: "Wolisz e-mail?",
 };
+
+// ─── Cennik ───────────────────────────────────────────────────
+export const CENNIK = {
+  intro:
+    "Bez ukrytych kosztów i abonamentów, które rosną z czasem. Jedna stała cena za gotową stronę, a zanim zapłacisz, widzisz gotowy projekt strony głównej.",
+  includes: [
+    "Projekt strony głównej za darmo, zanim cokolwiek zapłacisz",
+    "Gotowa strona wizytówka, dopasowana do Twojej firmy",
+    "Wersja mobilna i szybkie ładowanie",
+    "Treści napisane pod Twoich klientów i pod Google",
+    "Podpięcie pod Twoją domenę i pomoc techniczna",
+    "Podstawowa optymalizacja pod wyszukiwarkę",
+  ],
+  excludes: [
+    "Rozbudowany sklep internetowy z płatnościami",
+    "Systemy rezerwacji na abonamencie (mogę wpiąć Twój)",
+    "Zdjęcia z profesjonalnej sesji (doradzę, jak zrobić dobre samemu)",
+  ],
+  excludesNote:
+    "Jeśli potrzebujesz czegoś spoza tej listy, powiem wprost, ile to kosztuje, zanim zaczniemy.",
+  faq: [
+    { q: "Dlaczego stała cena, a nie wycena za godziny?", a: "Bo chcesz wiedzieć, ile zapłacisz, zanim zaczniemy. 399 zł to pełna cena gotowej strony wizytówki, bez dopłat po drodze." },
+    { q: "Kiedy płacę?", a: "Po akceptacji projektu, nie z góry. Najpierw za darmo przygotowuję projekt strony głównej, a Ty decydujesz bez zobowiązań." },
+    { q: "Czy są jakieś koszty co miesiąc?", a: "Ode mnie nie. Zostają tylko domena i hosting, czyli kilkadziesiąt złotych rocznie, płacone bezpośrednio u dostawcy. Podpowiem, jak to ustawić tanio." },
+    { q: "Co, jeśli potrzebuję czegoś więcej niż wizytówki?", a: "Powiem wprost, ile kosztuje dodatkowa funkcja, zanim się na nią zdecydujesz. Żadnych niespodzianek na fakturze." },
+  ],
+};
+
+// ─── FAQ ──────────────────────────────────────────────────────
+export const FAQ_ITEMS = [
+  { q: "Ile kosztuje strona?", a: "Stała cena 399 zł za gotową stronę wizytówkę. Projekt strony głównej przygotowuję najpierw za darmo, więc płacisz dopiero, gdy widzisz efekt." },
+  { q: "Co dostaję za darmo?", a: "Projekt strony głównej dopasowany do Twojej firmy, w 24 godziny i bez żadnych zobowiązań. Jeśli się nie spodoba, nic nie tracisz." },
+  { q: "Ile trwa zrobienie strony?", a: "Projekt strony głównej w 24 godziny. Jeśli go akceptujesz, gotowa strona powstaje w 72 godziny." },
+  { q: "Czy strona będzie działać na telefonie?", a: "Tak. Każdą stronę robię tak, żeby dobrze wyglądała i szybko działała na telefonie, bo tam trafia większość klientów." },
+  { q: "Czyja jest domena i strona?", a: "Twoja. Stronę publikuję na Twojej domenie i na Twoim koncie, więc masz nad nią pełną kontrolę." },
+  { q: "Nie mam jeszcze domeny.", a: "Pomogę ją wybrać i podpiąć. Domena to koszt kilkudziesięciu złotych rocznie, płacony bezpośrednio u rejestratora." },
+  { q: "Czy pomożecie z Google?", a: "Tak. Robię podstawową optymalizację pod wyszukiwarkę i podpowiem, jak zadbać o wizytówkę w Mapach Google." },
+  { q: "Jak wygląda kontakt i płatność?", a: "Piszemy na Instagramie albo mailowo. Płatność następuje po akceptacji projektu, nie z góry." },
+  { q: "Co, jeśli chcę później coś zmienić?", a: "Drobne poprawki po publikacji są naturalną częścią pracy. Większe rozbudowy wyceniam osobno i zawsze mówię cenę z góry." },
+];
+
+// ─── O mnie ───────────────────────────────────────────────────
+export const O_MNIE = {
+  lead:
+    "Nazywam się Igor i projektuję strony dla lokalnych firm w Warszawie. Jednoosobowo, konkretnie i bez korporacyjnego żargonu.",
+  paragraphs: [
+    "Sitelab to nie agencja z działem sprzedaży. To ja i moja praca. Dzięki temu rozmawiasz bezpośrednio z osobą, która projektuje Twoją stronę, a nie z pośrednikiem.",
+    "Pracuję inaczej niż większość. Najpierw, za darmo i w 24 godziny, przygotowuję projekt Twojej strony głównej. Oceniasz go bez żadnych zobowiązań. Płacisz dopiero wtedy, gdy widzisz efekt i chcesz go opublikować. Całe ryzyko jest po mojej stronie, nie Twojej.",
+    "Każdą stronę zaczynam od tego, co odróżnia Twoją firmę od sąsiada z tej samej ulicy. Potem dobieram typografię, kolor i rytm, aż strona wygląda jak Wasza, a nie jak szablon. Zależy mi, żeby po wejściu od razu było wiadomo, gdzie się jest, co można dostać i dlaczego warto zostać.",
+    "Prace w mojej galerii to projekty koncepcyjne dla prawdziwych warszawskich miejsc. Nie wymyślam opinii ani klientów, których nie mam. Wolę pokazać, jak pracuję, niż obiecywać rzeczy, których nie dowiozę.",
+  ],
+};

@@ -9,11 +9,13 @@ export function PageHero({
   kicker,
   title,
   sub,
+  cta = true,
   ctaLabel = "Odbierz darmowy projekt",
 }: {
   kicker: string;
   title: string;
   sub?: string;
+  cta?: boolean;
   ctaLabel?: string;
 }) {
   return (
@@ -25,13 +27,15 @@ export function PageHero({
       {sub && (
         <p className="mt-6 max-w-prose-narrow text-base leading-relaxed text-stone sm:text-lg">{sub}</p>
       )}
-      <a
-        href="#kontakt"
-        className="mt-8 inline-flex min-h-[52px] items-center gap-2.5 bg-ink px-7 text-base font-medium text-ivory transition-colors hover:bg-black"
-      >
-        {ctaLabel}
-        <ArrowRight className="h-5 w-5" />
-      </a>
+      {cta && (
+        <a
+          href="#kontakt"
+          className="mt-8 inline-flex min-h-[52px] items-center gap-2.5 bg-ink px-7 text-base font-medium text-ivory transition-colors hover:bg-black"
+        >
+          {ctaLabel}
+          <ArrowRight className="h-5 w-5" />
+        </a>
+      )}
     </section>
   );
 }
