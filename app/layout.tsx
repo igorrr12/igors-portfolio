@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { CONTACT, igLink } from "@/lib/config";
 import "./globals.css";
 
 /** Display — Gambetta (Fontshare, self-hosted). High-contrast editorial serif. */
@@ -54,10 +55,47 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/**
+ * Structured data (JSON-LD). Gives Google clean, formatted business facts so it
+ * can render a better search result and is more likely to trust the description.
+ */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://getsitelab.pl/#business",
+  name: CONTACT.brand,
+  url: "https://getsitelab.pl",
+  image: "https://getsitelab.pl/icon-512.png",
+  logo: "https://getsitelab.pl/icon-512.png",
+  description:
+    "Pracownia stron internetowych dla lokalnych firm w Warszawie. Darmowy projekt strony głównej w 24 h, gotowa strona w 72 h za 399 zł.",
+  email: CONTACT.email,
+  sameAs: [igLink],
+  areaServed: { "@type": "City", name: CONTACT.city },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: CONTACT.city,
+    addressCountry: "PL",
+  },
+  priceRange: "399 zł",
+  makesOffer: {
+    "@type": "Offer",
+    name: "Strona internetowa dla lokalnej firmy",
+    price: "399",
+    priceCurrency: "PLN",
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl" className={`${gambetta.variable} ${satoshi.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

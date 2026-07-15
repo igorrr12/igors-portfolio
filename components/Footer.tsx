@@ -10,10 +10,10 @@ export function Footer() {
           <p className="caption mt-3 !text-white/50">Pracownia stron internetowych · {CONTACT.city}</p>
         </div>
         <div className="flex flex-col gap-2 text-sm text-white/80 sm:items-end">
-          <a href={igLink} target="_blank" rel="noopener noreferrer" className="link-under inline-flex min-h-[44px] items-center">
+          <a href={igLink} target="_blank" rel="noopener noreferrer" className="link-under flex w-fit min-h-[44px] items-center">
             @{CONTACT.instagram}
           </a>
-          <a href={mailLink} className="link-under inline-flex min-h-[44px] items-center">
+          <a href={mailLink} className="link-under flex w-fit min-h-[44px] items-center">
             {CONTACT.email}
           </a>
           <p className="mt-2 text-xs text-white/40">© {new Date().getFullYear()} Sitelab — Warszawa</p>
