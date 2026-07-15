@@ -39,8 +39,13 @@ So every page maps to something someone in the funnel is actually typing into Go
 - **Reuse the shell.** No new colors, fonts, or components that break the gallery look.
   New components extend the existing system (`gallery-frame`, `caption`, `caption-dot`,
   `rule`, `link-under`, `bg-ink`, Gambetta + Satoshi, accent `#FF6A2C`).
-- **Instagram-DM CTA unchanged.** The `GuestBook` lead form (copies message + opens IG
+- **Instagram-DM CTA unchanged.** The `ContactSection` lead form (copies message + opens IG
   thread) is the primary conversion on every page. Email is the secondary channel.
+- **Neutral contact naming.** The old "guest book / Księga gości" metaphor is dropped
+  everywhere in favour of the plain, typical "Kontakt". The existing home component
+  `GuestBook`/`GUESTBOOK`/`#ksiega-gosci` is renamed to `ContactSection` /
+  `CONTACT_SECTION` / `#kontakt` (caption "Kontakt", title "Napisz do mnie",
+  `data-gallery-stop="Kontakt"`). No user-facing "wpis"/"księga" wording remains.
 - **Honesty preserved.** Works stay labelled as concept projects ("projekt koncepcyjny")
   for real Warsaw places. No fake testimonials or invented client quotes.
 
@@ -124,9 +129,9 @@ all routes including the home:
 - `Footer` logo links to `/`.
 
 **Direct contact always reachable**
-- `Header` includes a "Kontakt" link → the page-local lead block (`#ksiega-gosci`),
+- `Header` includes a "Kontakt" link → the page-local lead block (`#kontakt`),
   which every subpage renders.
-- Every page renders the `GuestBook` lead block near the bottom (IG-DM flow).
+- Every page renders the `ContactSection` lead block near the bottom (IG-DM flow).
 - `Footer` shows the Instagram DM link and the email link on every page.
 - New `MobileContactBar`: sticky bottom bar on small screens, on every page, with
   "Napisz na Instagramie" (`igDmLink`) + email. Hidden on `sm+`. Respects safe-area.
@@ -136,7 +141,7 @@ all routes including the home:
 **Header → shared `Nav`** (replaces the current minimal header), used on all pages:
 - Left: `Logo` → `/`.
 - Links: `Oferta` (`/oferta`), `Realizacje` (`/realizacje`), `Cennik` (`/cennik`),
-  `Dziennik` (`/dziennik`), `Kontakt` (`#ksiega-gosci`).
+  `Dziennik` (`/dziennik`), `Kontakt` (`#kontakt`).
 - Mobile: quiet slide-in / disclosure menu, gallery styling, min 44px targets.
 - Style: same letterspaced small-caps / `link-under` treatment as today. On the home
   page it can stay `absolute`/overlay as now; on subpages it sits in normal flow above
@@ -153,7 +158,7 @@ all routes including the home:
 ### Shared subpage anatomy
 
 Most subpages follow: `Nav` → `Breadcrumbs` → `PageHero` → body sections →
-`GuestBook` (`#ksiega-gosci`) → related links → `Footer` → `MobileContactBar`.
+`ContactSection` (`#kontakt`) → related links → `Footer` → `MobileContactBar`.
 `ProgressLine` and `GuideLine` stay home-only (they belong to the scroll exhibition).
 
 ### Industry pages (`/strony-dla-*`)  — 6
@@ -163,7 +168,7 @@ Data: `lib/industries.ts`. Each renders `<IndustryPage>`.
 Sections:
 1. **Breadcrumbs:** Sitelab / Oferta / [Branża].
 2. **PageHero:** H1 `Strony internetowe dla [branży] w Warszawie`, one-line sub, CTA
-   to `#ksiega-gosci`.
+   to `#kontakt`.
 3. **Intro** (1–2 short paragraphs): the specific problem this industry has online.
 4. **"Czego potrzebuje strona [branży]"**: 3–4 industry-specific needs
    (e.g. gastronomia = menu i ceny od progu; barber = rezerwacja w dwa kliknięcia;
@@ -172,7 +177,7 @@ Sections:
    `/realizacje/...` page), labelled "projekt koncepcyjny".
 6. **Offer**: reuse `Placard` (399 zł / darmowy projekt 24 h / realizacja 72 h).
 7. **Mini-FAQ**: 3–4 Q&A → renders `FAQPage` JSON-LD.
-8. **GuestBook** lead block.
+8. **ContactSection** lead block.
 9. **Related links**: relevant districts + a related `dziennik` article + other industries.
 
 Example → work mapping:
@@ -197,7 +202,7 @@ Sections:
 4. **Offer** (`Placard`).
 5. **Featured works** (from `WORKS`).
 6. **Related industries** (links to the 6 industry pages) + other districts.
-7. **GuestBook** lead block.
+7. **ContactSection** lead block.
 
 Hub `/strony-internetowe`: intro targeting Warsaw broadly + a directory of all districts
 and links to industries. Written to complement, not duplicate, the home H1 (home =
@@ -215,7 +220,7 @@ Extend `lib/works.ts` `Work` with detail fields: `problem`, `story` (paragraphs)
 - **Detail `/realizacje/[slug]`:** breadcrumbs → PageHero (name + sector + district) →
   before/after (reuse existing before + after images) → "Co się zmieniło" (changes) →
   short story → honest "projekt koncepcyjny" note → link to the matching industry page →
-  GuestBook.
+  ContactSection.
 
 Schema: `CreativeWork` (or `ImageObject`) + `BreadcrumbList`.
 
@@ -225,7 +230,7 @@ Answer-first page for "ile kosztuje strona internetowa (Warszawa)".
 Sections: PageHero H1 `Ile kosztuje strona internetowa w Warszawie?` → direct answer
 (399 zł stała cena, darmowy projekt w 24 h, realizacja w 72 h, płatność po akceptacji) →
 "Co zawiera cena" list → what is not included / honest add-ons → `Process` (reuse) →
-pricing FAQ (`FAQPage`) → GuestBook.
+pricing FAQ (`FAQPage`) → ContactSection.
 Schema: `Offer` + `FAQPage` + `BreadcrumbList`.
 
 ### FAQ (`/faq`)  — 1
@@ -252,7 +257,7 @@ dependency). Editorial gallery tone.
   2. `czego-potrzebuje-strona-restauracji` → links to `/strony-dla-restauracji`.
   3. `strona-internetowa-czy-instagram` → links to `/oferta` / home.
 
-Each: breadcrumbs → title + published date → body → related links → GuestBook.
+Each: breadcrumbs → title + published date → body → related links → ContactSection.
 Schema: `Article` (headline, datePublished, dateModified, author = Igor,
 publisher = Sitelab) + `BreadcrumbList`.
 
@@ -295,9 +300,9 @@ New shared:
 - `RelatedLinks` (internal-linking block).
 - `IndustryPage`, `DistrictPage`, `WorkDetail`, `ArticleBody` (data-driven templates).
 
-Reused as-is or lightly extended: `Footer` (→ sitemap columns), `GuestBook`, `Placard`,
+Reused as-is or lightly extended: `Footer` (→ sitemap columns), `ContactSection`, `Placard`,
 `WallLabel`, `Work`, `Process`, `Logo`, `icons`. Home-only: `Cover`, `Exhibition`,
-`CuratorNote`, `GuestBook` (also on subpages), `GuideLine`, `ProgressLine`.
+`CuratorNote`, `ContactSection` (also on subpages), `GuideLine`, `ProgressLine`.
 
 ## New / changed data files
 
@@ -322,7 +327,7 @@ Reused as-is or lightly extended: `Footer` (→ sitemap columns), `GuestBook`, `
 
 - `sitemap.xml` lists all 26 URLs; each resolves and returns unique title + meta +
   canonical.
-- Every page: logo/breadcrumb/footer link to `/`; header Kontakt + GuestBook + footer
+- Every page: logo/breadcrumb/footer link to `/`; header Kontakt + ContactSection + footer
   contact + mobile bar all present.
 - Valid JSON-LD per page type (passes Google Rich Results test shape:
   Service/Article/FAQPage/Offer/BreadcrumbList).
