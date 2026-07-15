@@ -3,15 +3,16 @@ import { GuideLine } from "@/components/GuideLine";
 import { CuratorNote } from "@/components/CuratorNote";
 import { Exhibition } from "@/components/Exhibition";
 import { Footer } from "@/components/Footer";
-import { GuestBook } from "@/components/GuestBook";
-import { Header } from "@/components/Header";
+import { ContactSection } from "@/components/ContactSection";
+import { MobileContactBar } from "@/components/MobileContactBar";
+import { Nav } from "@/components/Nav";
 import { Process } from "@/components/Process";
 import { ProgressLine } from "@/components/ProgressLine";
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <Nav overlay />
       <ProgressLine />
       <main className="relative">
         <GuideLine />
@@ -19,9 +20,10 @@ export default function Home() {
         <Exhibition />
         <CuratorNote />
         <Process />
-        <GuestBook />
+        <ContactSection />
       </main>
       <Footer />
+      <MobileContactBar />
     </>
   );
 }

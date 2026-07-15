@@ -63,9 +63,9 @@ export const PROCESS = {
   ],
 };
 
-export const GUESTBOOK = {
-  caption: "Księga gości",
-  title: "Zostaw wpis",
+export const CONTACT_SECTION = {
+  caption: "Kontakt",
+  title: "Napisz do mnie",
   sub: "Otworzę Twój czat na Instagramie z gotową wiadomością. Projekt strony głównej wraca do Ciebie w 24 godziny, za darmo.",
   fieldBusiness: "Nazwa Twojej firmy",
   fieldBusinessPlaceholder: "np. Barber Mokotów",

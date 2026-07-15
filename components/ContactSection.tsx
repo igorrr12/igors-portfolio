@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import { CONTACT, dmMessage, igDmLink, mailLink } from "@/lib/config";
-import { GUESTBOOK } from "@/lib/content";
+import { CONTACT_SECTION } from "@/lib/content";
 import { ArrowRight, Check, Instagram } from "./icons";
 import { WallLabel } from "./WallLabel";
 
 /**
- * The gallery guest book = the IG-DM capture. Instagram can't pre-fill
+ * The contact section = the IG-DM capture. Instagram can't pre-fill
  * a DM, so on submit we copy a ready message to the clipboard and open
- * the visitor's thread to paste. Logic ported 1:1 from the old FinalCta.
+ * the visitor's thread to paste.
  */
-export function GuestBook() {
+export function ContactSection() {
   const [business, setBusiness] = useState("");
   const [link, setLink] = useState("");
   const [error, setError] = useState(false);
@@ -50,20 +50,20 @@ export function GuestBook() {
 
   return (
     <section
-      id="ksiega-gosci"
-      data-gallery-stop="Księga gości"
+      id="kontakt"
+      data-gallery-stop="Kontakt"
       className="gallery-frame pb-[16vh] pt-[22vh] sm:pt-[30vh]"
     >
-      <WallLabel caption={GUESTBOOK.caption} title={GUESTBOOK.title} />
+      <WallLabel caption={CONTACT_SECTION.caption} title={CONTACT_SECTION.title} />
 
       <div className="mt-10 grid gap-12 md:grid-cols-[1fr_1.1fr] md:gap-20">
-        <p className="max-w-prose-narrow text-base leading-relaxed text-stone sm:text-lg">{GUESTBOOK.sub}</p>
+        <p className="max-w-prose-narrow text-base leading-relaxed text-stone sm:text-lg">{CONTACT_SECTION.sub}</p>
 
         <div>
           {!sent ? (
             <form onSubmit={handleSubmit} noValidate className="max-w-md">
               <label htmlFor="business" className="caption block">
-                {GUESTBOOK.fieldBusiness} <span className="text-accent">*</span>
+                {CONTACT_SECTION.fieldBusiness} <span className="text-accent">*</span>
               </label>
               <input
                 id="business"
@@ -75,20 +75,20 @@ export function GuestBook() {
                   setBusiness(e.target.value);
                   if (error) setError(false);
                 }}
-                placeholder={GUESTBOOK.fieldBusinessPlaceholder}
+                placeholder={CONTACT_SECTION.fieldBusinessPlaceholder}
                 aria-invalid={error}
                 aria-describedby={error ? "business-error" : undefined}
                 className={`mt-1 ${inputClass(error)}`}
               />
               {error && (
                 <p id="business-error" role="alert" className="mt-2 text-sm text-red-700">
-                  {GUESTBOOK.fieldBusinessError}
+                  {CONTACT_SECTION.fieldBusinessError}
                 </p>
               )}
 
               <label htmlFor="link" className="caption mt-8 block">
-                {GUESTBOOK.fieldLink}{" "}
-                <span className="normal-case tracking-normal text-stone">{GUESTBOOK.fieldLinkOptional}</span>
+                {CONTACT_SECTION.fieldLink}{" "}
+                <span className="normal-case tracking-normal text-stone">{CONTACT_SECTION.fieldLinkOptional}</span>
               </label>
               <input
                 id="link"
@@ -98,7 +98,7 @@ export function GuestBook() {
                 autoComplete="url"
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
-                placeholder={GUESTBOOK.fieldLinkPlaceholder}
+                placeholder={CONTACT_SECTION.fieldLinkPlaceholder}
                 className={`mt-1 ${inputClass(false)}`}
               />
 
@@ -106,12 +106,12 @@ export function GuestBook() {
                 type="submit"
                 className="mt-10 inline-flex min-h-[54px] w-full items-center justify-center gap-2.5 bg-ink px-8 text-base font-medium text-ivory transition-colors hover:bg-black sm:w-auto"
               >
-                {GUESTBOOK.submit}
+                {CONTACT_SECTION.submit}
                 <ArrowRight className="h-5 w-5" />
               </button>
               <p className="mt-4 flex items-center gap-1.5 text-sm text-stone">
                 <Instagram className="h-4 w-4 text-accent" style={{ width: 16, height: 16 }} />
-                {GUESTBOOK.privacy}
+                {CONTACT_SECTION.privacy}
               </p>
             </form>
           ) : (
@@ -119,9 +119,9 @@ export function GuestBook() {
               <span className="grid h-12 w-12 place-items-center rounded-full border border-accent text-accent">
                 <Check className="h-6 w-6" />
               </span>
-              <h3 className="mt-5 font-display text-2xl font-medium">{GUESTBOOK.sentTitle(business.trim())}</h3>
+              <h3 className="mt-5 font-display text-2xl font-medium">{CONTACT_SECTION.sentTitle(business.trim())}</h3>
               <p className="mt-2 text-base leading-relaxed text-stone">
-                {copied ? GUESTBOOK.sentCopied : GUESTBOOK.sentManual}
+                {copied ? CONTACT_SECTION.sentCopied : CONTACT_SECTION.sentManual}
               </p>
 
               <div className="mt-5 border border-line bg-white/60 p-4">
@@ -132,7 +132,7 @@ export function GuestBook() {
                   className="link-under mt-3 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-accent"
                 >
                   <Check className="h-4 w-4" style={{ width: 16, height: 16 }} />
-                  {copied ? GUESTBOOK.copied : GUESTBOOK.copy}
+                  {copied ? CONTACT_SECTION.copied : CONTACT_SECTION.copy}
                 </button>
               </div>
 
@@ -144,13 +144,13 @@ export function GuestBook() {
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-ink px-7 text-base font-medium text-ivory transition-colors hover:bg-black"
                 >
                   <Instagram className="h-5 w-5" />
-                  {GUESTBOOK.openInstagram}
+                  {CONTACT_SECTION.openInstagram}
                 </a>
                 <a
                   href={mailLink}
                   className="inline-flex min-h-[52px] items-center justify-center border border-ink/25 px-7 text-base font-medium transition-colors hover:border-accent hover:text-accent"
                 >
-                  {GUESTBOOK.preferEmail}
+                  {CONTACT_SECTION.preferEmail}
                 </a>
               </div>
               <p className="mt-4 text-xs text-stone">{CONTACT.email}</p>
