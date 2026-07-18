@@ -24,7 +24,7 @@ export function FAQ({
           <details key={it.q} className="group border-b border-line py-5">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium marker:hidden">
               <span>{it.q}</span>
-              <span aria-hidden className="shrink-0 text-xl leading-none text-accent transition-transform duration-300 group-open:rotate-45">
+              <span aria-hidden className="shrink-0 text-xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-300 group-open:rotate-45">
                 +
               </span>
             </summary>

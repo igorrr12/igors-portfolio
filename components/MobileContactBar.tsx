@@ -16,7 +16,7 @@ export function MobileContactBar() {
         href={igDmLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex min-h-[46px] flex-1 items-center justify-center gap-2 bg-ink text-sm font-medium text-ivory"
+        className="press flex min-h-[46px] flex-1 items-center justify-center gap-2 bg-ink text-sm font-medium text-ivory"
       >
         <Instagram className="h-4 w-4" style={{ width: 16, height: 16 }} />
         Napisz na Instagramie
@@ -24,7 +24,7 @@ export function MobileContactBar() {
       <a
         href={mailLink}
         aria-label={`Napisz e-mail: ${CONTACT.email}`}
-        className="flex min-h-[46px] w-[46px] items-center justify-center border border-ink/25 text-ink transition-colors hover:border-accent hover:text-accent"
+        className="press flex min-h-[46px] w-[46px] items-center justify-center border border-ink/25 text-ink hover:border-accent hover:text-accent"
       >
         <Mail className="h-5 w-5" />
       </a>

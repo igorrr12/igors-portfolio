@@ -19,6 +19,10 @@
   --stone: #6e6961;
   --line: rgba(20, 19, 17, 0.12);
   --accent: #ff6a2c;
+
+  /* The system's one expressive curve (ease-out-quart). Every transition and
+     entrance in the shell uses it, so all motion feels like one hand. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
@@ -29,11 +33,30 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    /* Our own :active states replace the grey mobile tap flash. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Even line lengths on headings, fewer orphans in prose. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
 
   ::selection {
     background: var(--ink);
     color: var(--ivory);
+  }
+
+  /* Inside the dark room (footer) the global ink-on-ink selection would
+     vanish; invert it. */
+  .bg-ink ::selection {
+    background: var(--ivory);
+    color: var(--ink);
   }
 
   :focus-visible {
@@ -77,9 +100,70 @@
     background: var(--accent);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.45s var(--ease-out);
   }
-  .link-under:hover::after {
-    transform: scaleX(1);
+  /* Hover-capable pointers only: on touch, tap-triggered hover sticks and the
+     underline lingers after navigation. */
+  @media (hover: hover) and (pointer: fine) {
+    .link-under:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Pressable feedback: the element scales down 2% while held, confirming the
+     press instantly. Owns the full button transition list, so elements using
+     it drop `transition-colors`. */
+  .press {
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .press:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+/* ── Motion vocabulary ─────────────────────────────────────────
+   Three entrances, one curve. All gated behind reduced-motion, so
+   the default (and the reduced experience) is the composed static
+   page; the animation is additive, never load-bearing. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Page-hero entrance: kicker → title → sub → CTA, 60ms steps. */
+  .rise-in,
+  .rise-in-2,
+  .rise-in-3,
+  .rise-in-4 {
+    animation: rise-in 450ms var(--ease-out) both;
+  }
+  .rise-in-2 {
+    animation-delay: 60ms;
+  }
+  .rise-in-3 {
+    animation-delay: 120ms;
+  }
+  .rise-in-4 {
+    animation-delay: 180ms;
+  }
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+
+  /* Small settle for revealed content: FAQ answers, the mobile menu. */
+  details[open] > p,
+  .menu-in {
+    animation: settle-in 240ms var(--ease-out) both;
+  }
+  @keyframes settle-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
   }
 }

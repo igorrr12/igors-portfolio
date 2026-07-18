@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CONTACT, dmMessage, igDmLink, mailLink } from "@/lib/config";
 import { CONTACT_SECTION } from "@/lib/content";
 import { ArrowRight, Check, Instagram } from "./icons";
+import { Reveal } from "./Reveal";
 import { WallLabel } from "./WallLabel";
 
 /**
@@ -56,14 +57,17 @@ export function ContactSection() {
     >
       <WallLabel caption={CONTACT_SECTION.caption} title={CONTACT_SECTION.title} />
 
-      <div className="mt-10 grid gap-12 md:grid-cols-[1fr_1.1fr] md:gap-20">
+      <Reveal selector=":scope > *" className="mt-10 grid gap-12 md:grid-cols-[1fr_1.1fr] md:gap-20">
         <p className="max-w-prose-narrow text-base leading-relaxed text-stone sm:text-lg">{CONTACT_SECTION.sub}</p>
 
         <div>
           {!sent ? (
             <form onSubmit={handleSubmit} noValidate className="max-w-md">
+              {/* Requiredness is carried by the word, not by the accent colour:
+                  #FF6A2C measures 2.62:1 on ivory, under the AA floor. */}
               <label htmlFor="business" className="caption block">
-                {CONTACT_SECTION.fieldBusiness} <span className="text-accent">*</span>
+                {CONTACT_SECTION.fieldBusiness}{" "}
+                <span className="normal-case tracking-normal text-stone">(wymagane)</span>
               </label>
               <input
                 id="business"
@@ -104,10 +108,10 @@ export function ContactSection() {
 
               <button
                 type="submit"
-                className="mt-10 inline-flex min-h-[54px] w-full items-center justify-center gap-2.5 bg-ink px-8 text-base font-medium text-ivory transition-colors hover:bg-black sm:w-auto"
+                className="press group mt-10 inline-flex min-h-[54px] w-full items-center justify-center gap-2.5 bg-ink px-8 text-base font-medium text-ivory hover:bg-black sm:w-auto"
               >
                 {CONTACT_SECTION.submit}
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-5 w-5 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1" />
               </button>
               <p className="mt-4 flex items-center gap-1.5 text-sm text-stone">
                 <Instagram className="h-4 w-4 text-accent" style={{ width: 16, height: 16 }} />
@@ -129,9 +133,11 @@ export function ContactSection() {
                 <button
                   type="button"
                   onClick={copyMessage}
-                  className="link-under mt-3 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-accent"
+                  className="link-under mt-3 inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-ink"
                 >
-                  <Check className="h-4 w-4" style={{ width: 16, height: 16 }} />
+                  {/* Ink, not accent: this is an interactive control at 14px and
+                      the accent fails AA. The icon stays accent (decorative). */}
+                  <Check className="h-4 w-4 text-accent" style={{ width: 16, height: 16 }} />
                   {copied ? CONTACT_SECTION.copied : CONTACT_SECTION.copy}
                 </button>
               </div>
@@ -141,23 +147,36 @@ export function ContactSection() {
                   href={igDmLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[52px] items-center justify-center gap-2 bg-ink px-7 text-base font-medium text-ivory transition-colors hover:bg-black"
+                  className="press inline-flex min-h-[52px] items-center justify-center gap-2 bg-ink px-7 text-base font-medium text-ivory hover:bg-black"
                 >
                   <Instagram className="h-5 w-5" />
                   {CONTACT_SECTION.openInstagram}
                 </a>
                 <a
                   href={mailLink}
-                  className="inline-flex min-h-[52px] items-center justify-center border border-ink/25 px-7 text-base font-medium transition-colors hover:border-accent hover:text-accent"
+                  className="press inline-flex min-h-[52px] items-center justify-center border border-ink/25 px-7 text-base font-medium hover:border-accent hover:text-accent"
                 >
                   {CONTACT_SECTION.preferEmail}
                 </a>
               </div>
               <p className="mt-4 text-xs text-stone">{CONTACT.email}</p>
+
+              {/* Way back: the sent state used to be a one-way door, so a typo in
+                  the business name could only be fixed by reloading the page. */}
+              <button
+                type="button"
+                onClick={() => {
+                  setSent(false);
+                  setCopied(false);
+                }}
+                className="link-under mt-6 inline-flex min-h-[44px] items-center text-sm text-stone"
+              >
+                Popraw dane
+              </button>
             </div>
           )}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

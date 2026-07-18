@@ -1,5 +1,6 @@
 import { EXHIBITION } from "@/lib/content";
 import { WORKS } from "@/lib/works";
+import { Reveal } from "./Reveal";
 import { WallLabel } from "./WallLabel";
 import { WorkFrame } from "./Work";
 
@@ -10,15 +11,17 @@ export function Exhibition() {
         <WallLabel caption={EXHIBITION.caption} title={EXHIBITION.title} id="wystawa" />
       </div>
 
-      {WORKS.map((work) => (
-        <WorkFrame key={work.id} work={work} />
+      {/* Unveil direction alternates per work, so the ritual repeats
+          without feeling copied. */}
+      {WORKS.map((work, i) => (
+        <WorkFrame key={work.id} work={work} flip={i % 2 === 1} />
       ))}
 
-      <div className="gallery-frame">
+      <Reveal className="gallery-frame">
         <p className="mx-auto max-w-prose-narrow text-center text-sm leading-relaxed text-stone">
           {EXHIBITION.note}
         </p>
-      </div>
+      </Reveal>
     </>
   );
 }

@@ -47,8 +47,8 @@ export const WORKS: Work[] = [
     problem:
       "Bar z wierną klientelą, ale w internecie prawie niewidoczny. Menu i godziny tylko na kartce w witrynie.",
     story: [
-      "Bar Bambino gotuje to samo od lat i ludzie wracają po smak, nie po grafikę. Chcieliśmy, żeby strona działała tak samo: ciepło, bez udawania, z jedzeniem na pierwszym planie.",
-      "Zamiast slajdera z ozdobnikami zrobiliśmy prostą stronę, na której od razu widać dzisiejsze menu, ceny i godziny. Zdjęcia własne, nie ze stocka, bo to one budują apetyt.",
+      "Bar Bambino gotuje to samo od lat i ludzie wracają po smak, nie po grafikę. Chciałem, żeby strona działała tak samo: ciepło, bez udawania, z jedzeniem na pierwszym planie.",
+      "Zamiast slajdera z ozdobnikami zrobiłem prostą stronę, na której od razu widać dzisiejsze menu, ceny i godziny. Zdjęcia własne, nie ze stocka, bo to one budują apetyt.",
     ],
     changes: [
       "Menu i ceny widoczne od razu, bez klikania w podstrony",
@@ -74,7 +74,7 @@ export const WORKS: Work[] = [
       "Rzemiosło z tradycją, ale rezerwacja tylko przez telefon i żadnego cennika w internecie.",
     story: [
       "Klasyczny zakład, w którym liczy się dobra robota i stały klient. Strona miała oddać ten spokój, a nie krzyczeć promocjami.",
-      "Postawiliśmy na mocny kontrast, jeden wyraźny przycisk rezerwacji i pełny cennik. Nowy klient w dwa kliknięcia wie, ile zapłaci i kiedy może przyjść.",
+      "Postawiłem na mocny kontrast, jeden wyraźny przycisk rezerwacji i pełny cennik. Nowy klient w dwa kliknięcia wie, ile zapłaci i kiedy może przyjść.",
     ],
     changes: [
       "Rezerwacja online zamiast wyłącznie telefonu",
@@ -100,7 +100,7 @@ export const WORKS: Work[] = [
       "Piękne bukiety, ale online tylko profil z kilkoma zdjęciami. Zamówienia ginęły w wiadomościach.",
     story: [
       "Kwiaty sprzedają się emocją, więc strona musiała być lekka i pełna zdjęć, a jednocześnie prowadzić prosto do zamówienia.",
-      "Dodaliśmy jasny układ z bukietami, cenami i dostawą tego samego dnia. Klient wybiera i pisze, bez przeglądania dziesiątek wiadomości.",
+      "Dodałem jasny układ z bukietami, cenami i dostawą tego samego dnia. Klient wybiera i pisze, bez przeglądania dziesiątek wiadomości.",
     ],
     changes: [
       "Bukiety z cenami zamiast samych zdjęć",

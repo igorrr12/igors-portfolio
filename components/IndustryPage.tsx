@@ -69,44 +69,51 @@ export function IndustryPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* Real section heading rather than a tracked-caps caption: the caption
+          ration is 1 per 3 sections, and in Polish the wall-label register
+          reads stilted on a sentence fragment. Items demote to h3 under it. */}
       <section className="gallery-frame pt-16 sm:pt-24">
-        <p className="caption caption-dot">Czego potrzebuje taka strona</p>
+        <h2 className="font-display text-2xl font-medium tracking-[-0.01em] sm:text-3xl">
+          Czego potrzebuje taka strona
+        </h2>
         <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
           {ind.needs.map((n) => (
             <div key={n.title} className="border-t border-line pt-4">
-              <h2 className="font-display text-xl font-medium">{n.title}</h2>
+              <h3 className="font-display text-xl font-medium">{n.title}</h3>
               <p className="mt-2 text-base leading-relaxed text-stone">{n.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
+      {/* No caption on this section: the work's own label below the image
+          already says what this is, and says it more precisely. */}
       {work && (
         <section className="gallery-frame pt-16 sm:pt-24">
-          <p className="caption caption-dot">Przykład z naszej galerii</p>
-          <Link href={`/realizacje/${work.slug}`} className="group mt-6 block">
+          <Link href={`/realizacje/${work.slug}`} className="group block">
             <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.25)]">
               <Image
                 src={work.image}
                 alt={work.alt}
                 fill
                 sizes="(min-width: 1240px) 1120px, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
                 quality={90}
               />
             </div>
+            {/* One separator per metadata line; the honesty label gets its own
+                line so it reads as a statement, not as a fourth tag. */}
             <p className="caption mt-4">
-              <span className="text-ink">„{work.name}”</span> · {work.sector} · {work.district} · projekt koncepcyjny
+              <span className="text-ink">„{work.name}”</span> · {work.sector}, {work.district}
+              <span className="mt-1 block">projekt koncepcyjny</span>
             </p>
           </Link>
         </section>
       )}
 
+      {/* No caption: the Placard's own rows name the offer. */}
       <section className="gallery-frame pt-16 sm:pt-24">
-        <p className="caption caption-dot">Oferta</p>
-        <div className="mt-6">
-          <Placard />
-        </div>
+        <Placard />
       </section>
 
       <FAQ items={ind.faq} caption="FAQ" title="Częste pytania" />

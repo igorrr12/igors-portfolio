@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-18T00:00:00.000Z",
+  "title": "Design System: Galeria Sitelab",
+  "extensions": {
+    "colorMeta": {
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Gallery Ivory",
+        "canonical": "#F7F5F0",
+        "tonalRamp": ["#1A1917", "#33312D", "#4D4A44", "#66625A", "#807B71", "#A8A499", "#D3CFC4", "#F7F5F0"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#141311",
+        "tonalRamp": ["#0A0908", "#141311", "#2A2825", "#403D38", "#565249", "#8C877C", "#C2BEB4", "#E8E5DE"]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "#6E6961",
+        "tonalRamp": ["#161512", "#2B2925", "#403D37", "#55514A", "#6E6961", "#948F85", "#BAB5AB", "#E0DCD3"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(20, 19, 17, 0.12)",
+        "tonalRamp": ["#141311", "#3D3B37", "#66635D", "#8F8B83", "#B8B4A9", "#D6D3CB", "#E8E6E0", "#F2F0EB"]
+      },
+      "surface-veil": {
+        "role": "neutral",
+        "displayName": "Surface Veil",
+        "canonical": "rgba(255, 255, 255, 0.6)",
+        "tonalRamp": ["#5C5B58", "#75736F", "#8E8C87", "#A7A49F", "#C0BEB8", "#D9D7D1", "#EDECE8", "#FFFFFF"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Kiln Orange",
+        "canonical": "#FF6A2C",
+        "tonalRamp": ["#2B0E03", "#521A06", "#7A270A", "#A1340D", "#C94211", "#FF6A2C", "#FF9A6E", "#FFCBB5"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page H1 only, one per page. Clamp ceiling of 3.9rem sits deliberately under the shouting threshold."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings and the contact success state."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-item headings, FAQ questions, related links. Stays serif at small sizes by rule."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose. Constrained to 65ch via max-w-prose-narrow."
+      },
+      "label": {
+        "displayName": "Section Caption",
+        "purpose": "Uppercase tracked caption. Rationed to one per three sections; in Polish it reads stilted, so prefer deleting it."
+      }
+    },
+    "shadows": [
+      {
+        "name": "framed-work",
+        "value": "0 1px 2px rgba(20,19,17,0.04), 0 24px 60px -30px rgba(20,19,17,0.25)",
+        "purpose": "The only shadow in the system. Belongs to the exhibited screenshot alone, because a framed piece genuinely hangs off the wall. The -30px spread keeps the falloff wide and faint rather than tight and dark."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The system's one curve (ease-out-quart), exposed as --ease-out. Every shell transition and entrance uses it."
+      },
+      {
+        "name": "rise-in",
+        "value": "450ms, 60ms stagger",
+        "purpose": "Page-hero entrance: kicker, title, sub, CTA rise 12px in sequence. Once per page load, content pages only, reduced-motion gated."
+      },
+      {
+        "name": "press",
+        "value": "160ms",
+        "purpose": "scale(0.98) on :active for every pressable element. Feedback, not decoration; reduced-motion gated."
+      },
+      {
+        "name": "settle-in",
+        "value": "240ms",
+        "purpose": "Revealed content (FAQ answers, mobile menu) drops 4px into place. Reduced-motion gated."
+      },
+      {
+        "name": "underline-draw",
+        "value": "450ms",
+        "purpose": "Inline link underline scaling from 0 on the left. Hover-capable pointers only."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "200ms",
+        "purpose": "CTA arrow glyph slides 4px right on hover; the icon moves, the button never does."
+      },
+      {
+        "name": "state-color",
+        "value": "150ms",
+        "purpose": "Color transition for buttons, borders and focus. No lift on hover."
+      },
+      {
+        "name": "work-zoom",
+        "value": "500ms",
+        "purpose": "Framed work image scales to 1.02 on group hover. Reduced-motion gated."
+      },
+      {
+        "name": "nav-toggle",
+        "value": "300ms",
+        "purpose": "Hamburger hairlines rotating into a cross; the middle bar fades at 200ms. Reduced-motion gated."
+      },
+      {
+        "name": "home-approach",
+        "value": "scrubbed, top 95% to top top",
+        "purpose": "Homepage work frames rise 56px from 30% opacity while walking up to the pin. GSAP, matchMedia gated."
+      },
+      {
+        "name": "home-unveil",
+        "value": "scrubbed pin, 80% desktop / 40% mobile",
+        "purpose": "Clip-path wipe (direction alternates per work) + inner-image settle from 1.08 + catalogue-number parallax + two-line caption stagger."
+      },
+      {
+        "name": "home-room-reveal",
+        "value": "scrubbed, top 92% to top 58%",
+        "purpose": "Reveal component: section content rises 28px in 0.12 staggers. Position-driven, never toggle-fired."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "content-max", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The free-mockup CTA. Should look like the only real action on the page.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#kontakt\">Odbierz darmowy projekt<svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 28px; background: #141311; color: #F7F5F0; font-family: Satoshi, system-ui, sans-serif; font-size: 1rem; font-weight: 500; text-decoration: none; border: none; border-radius: 0; transition: transform 160ms cubic-bezier(0.16,1,0.3,1), background-color 150ms ease; } .ds-btn-primary:hover { background: #000000; } .ds-btn-primary:hover .ds-btn-icon { transform: translateX(4px); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #FF6A2C; outline-offset: 3px; } .ds-btn-icon { width: 20px; height: 20px; transition: transform 200ms cubic-bezier(0.16,1,0.3,1); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The email fallback beside the Instagram CTA. Used once per page at most.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"mailto:igor@getsitelab.pl\">Wolę mailem</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; background: transparent; color: #141311; font-family: Satoshi, system-ui, sans-serif; font-size: 1rem; font-weight: 500; text-decoration: none; border: 1px solid rgba(20,19,17,0.25); border-radius: 0; transition: transform 160ms cubic-bezier(0.16,1,0.3,1), color 150ms ease, border-color 150ms ease; } .ds-btn-secondary:hover { color: #FF6A2C; border-color: #FF6A2C; } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary:focus-visible { outline: 2px solid #FF6A2C; outline-offset: 3px; }"
+    },
+    {
+      "name": "Underline Input",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "Label always above, never a placeholder standing in for a label. Text is larger than body copy so the field feels answerable.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-business\">Nazwa firmy <span class=\"ds-required\">*</span></label><input class=\"ds-input\" id=\"ds-business\" type=\"text\" placeholder=\"np. Kawiarnia Muszelka\"></div>",
+      "css": ".ds-field { display: block; max-width: 448px; } .ds-label { display: block; font-family: Satoshi, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: #6E6961; } .ds-required { color: #FF6A2C; } .ds-input { margin-top: 4px; height: 52px; width: 100%; padding: 0; background: transparent; color: #141311; font-family: Satoshi, system-ui, sans-serif; font-size: 1.125rem; border: 0; border-bottom: 1px solid rgba(20,19,17,0.25); border-radius: 0; outline: none; transition: border-color 150ms ease; } .ds-input::placeholder { color: rgba(110,105,97,0.5); } .ds-input:focus { border-bottom-color: #FF6A2C; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sits in flow with a hairline under-border on content pages; floats transparently over the cover on the homepage.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">Sitelab<i class=\"ds-nav-dot\"></i></span><nav class=\"ds-nav-links\"><a class=\"ds-nav-link\" href=\"#\">Oferta</a><a class=\"ds-nav-link\" href=\"#\">Realizacje</a><a class=\"ds-nav-link\" href=\"#\">Cennik</a><a class=\"ds-nav-cta\" href=\"#kontakt\">Kontakt</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 44px; padding: 20px 40px; background: #F7F5F0; border-bottom: 1px solid rgba(20,19,17,0.12); } .ds-nav-logo { display: inline-flex; align-items: center; font-family: Gambetta, Georgia, serif; font-size: 1.125rem; font-weight: 500; color: #141311; } .ds-nav-dot { display: inline-block; width: 5px; height: 5px; margin-left: 3px; border-radius: 9999px; background: #FF6A2C; } .ds-nav-links { display: flex; align-items: center; gap: 32px; } .ds-nav-link { position: relative; font-family: Satoshi, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #141311; text-decoration: none; } .ds-nav-link::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: #FF6A2C; transform: scaleX(0); transform-origin: left; transition: transform 450ms cubic-bezier(0.16,1,0.3,1); } .ds-nav-link:hover::after { transform: scaleX(1); } .ds-nav-cta { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; background: #141311; color: #F7F5F0; font-family: Satoshi, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: transform 160ms cubic-bezier(0.16,1,0.3,1), background-color 150ms ease; } .ds-nav-cta:hover { background: #000000; } .ds-nav-cta:active { transform: scale(0.98); }"
+    },
+    {
+      "name": "Placard",
+      "kind": "card",
+      "refersTo": "placard",
+      "description": "The offer as a museum label. Capped at label size so it never grows into a pricing comparison table, which is a named anti-reference.",
+      "html": "<div class=\"ds-placard\"><dl class=\"ds-placard-list\"><div class=\"ds-placard-row\"><dt class=\"ds-placard-label\">Projekt</dt><dd class=\"ds-placard-value\">Darmowy</dd></div><div class=\"ds-placard-row ds-placard-row-sep\"><dt class=\"ds-placard-label\">Gotowa strona</dt><dd class=\"ds-placard-value\">399 zł</dd></div><div class=\"ds-placard-row ds-placard-row-sep\"><dt class=\"ds-placard-label\">Czas</dt><dd class=\"ds-placard-value\">72 h</dd></div></dl><p class=\"ds-placard-note\">Płacisz dopiero, kiedy projekt Ci się spodoba.</p></div>",
+      "css": ".ds-placard { max-width: 448px; padding: 28px; background: rgba(255,255,255,0.6); border: 1px solid rgba(20,19,17,0.12); border-radius: 0; } .ds-placard-list { margin: 0; } .ds-placard-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 12px 0; } .ds-placard-row-sep { border-top: 1px solid rgba(20,19,17,0.12); } .ds-placard-label { font-family: Satoshi, system-ui, sans-serif; font-size: 0.875rem; color: #6E6961; } .ds-placard-value { margin: 0; font-family: Gambetta, Georgia, serif; font-size: 1.125rem; font-weight: 500; color: #141311; white-space: nowrap; } .ds-placard-note { margin: 20px 0 0; font-family: Satoshi, system-ui, sans-serif; font-size: 0.6875rem; color: #6E6961; }"
+    },
+    {
+      "name": "FAQ Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Native details/summary, so it is accessible and needs no client JS. The plus rotates to a cross on open.",
+      "html": "<details class=\"ds-faq\" open><summary class=\"ds-faq-q\"><span>Ile trwa przygotowanie strony?</span><span class=\"ds-faq-mark\" aria-hidden=\"true\">+</span></summary><p class=\"ds-faq-a\">Projekt strony głównej dostajesz w 24 godziny. Gotowa strona jest online w 72 godziny od akceptacji.</p></details>",
+      "css": ".ds-faq { max-width: 65ch; padding: 20px 0; border-bottom: 1px solid rgba(20,19,17,0.12); } .ds-faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; font-family: Gambetta, Georgia, serif; font-size: 1.125rem; font-weight: 500; color: #141311; } .ds-faq-q::-webkit-details-marker { display: none; } .ds-faq-mark { flex-shrink: 0; font-size: 1.25rem; line-height: 1; color: #FF6A2C; transition: transform 300ms ease; } .ds-faq[open] .ds-faq-mark { transform: rotate(45deg); } .ds-faq-a { margin: 12px 0 0; max-width: 65ch; font-family: Satoshi, system-ui, sans-serif; font-size: 1rem; line-height: 1.625; color: #6E6961; }"
+    },
+    {
+      "name": "Section Caption",
+      "kind": "chip",
+      "refersTo": "label-caption",
+      "description": "Rationed to one per three sections. Rendered here so the ration is visible, not so it is convenient to reach for.",
+      "html": "<p class=\"ds-caption\">Oferta</p>",
+      "css": ".ds-caption { margin: 0; font-family: Satoshi, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: #6E6961; } .ds-caption::after { content: \"\"; display: inline-block; width: 5px; height: 5px; margin-left: 8px; vertical-align: middle; border-radius: 9999px; background: #FF6A2C; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Working Gallery",
+    "overview": "A gallery that is also a workshop. The walls are ivory, the labels are factual, the hanging is generous, and the work on show is honestly unsold. This distinction matters more than it sounds: a finished gallery implies a career behind it, and there is not one yet. A working gallery implies a practice in motion, which is true and which is the only claim this site is entitled to make.\n\nThe system is built so the shell recedes and the exhibited screenshots carry every saturated color on the page. The ivory, the ink, the stone grey and the hairlines are deliberately inert. When a cafe's magenta or a bakery's deep green appears inside a framed work image, it should be the loudest thing on screen by a wide margin. Any decoration added to the shell steals from that contrast, so the shell gets nothing it does not need.\n\nRestraint here is an argument, not a preference. PRODUCT.md is explicit that there are no clients and no testimonials, so the craft of the page a visitor is currently reading is the only evidence available. The system therefore rejects two things by name: the Wix and template-marketplace look, because resembling the product being sold against is self-defeating, and the default SaaS startup landing page, because its dark hero, gradient text, three equal feature cards and \"Trusted by\" logo wall would all be borrowed credibility this studio has not earned.",
+    "keyCharacteristics": [
+      "Ivory walls, ink text, stone secondary copy, one warm accent",
+      "Sharp corners everywhere; radius exists only for dots and status circles",
+      "Hairline rules at 12% ink do the structural work that borders and cards do elsewhere",
+      "Editorial serif display against a quiet geometric sans body",
+      "Motion is scroll-driven on the homepage and absent on content pages, by design",
+      "A single deliberate light composition, with dark mode explicitly refused"
+    ],
+    "rules": [
+      {
+        "name": "The Loudest Thing Rule",
+        "body": "The most saturated color on any screen must belong to an exhibited work, never to the shell. If a shell element is competing with the artwork for attention, the shell element is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Five Places Rule",
+        "body": "Kiln Orange is permitted in exactly five roles: logo dot, focus ring, link underline, expand marker, required marker. Adding a sixth requires removing one. It is never a button fill, never a section background, never a gradient.",
+        "section": "colors"
+      },
+      {
+        "name": "The Committed Light Rule",
+        "body": "This is a single deliberate light composition. color-scheme: only light is load-bearing and opts the site out of Chrome and Android auto-dark inversion, which would destroy the ivory. Dark mode is refused, not forgotten. Do not add it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Rationed Caption Rule",
+        "body": "The uppercase tracked caption is capped at one per three sections, counting the page hero as one. In Polish the small-caps museum-label register reads stilted where it reads natural in English, so a surviving caption should be a short noun rather than a sentence fragment. A caption above every section also produces the templated rhythm that marks a page as machine-made. The default when unsure is to delete it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Everywhere Rule",
+        "body": "Gambetta carries headings at every size, down to 1.125rem. Do not switch small headings to Satoshi for clarity; the serif at small sizes is what makes a dense content page feel edited rather than generated.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Shadow Rule",
+        "body": "The system has a single shadow and it is spoken for. Buttons, cards, navigation, dropdowns, the Placard and form fields are all flat, at rest and on hover. A second shadow entering this system is a defect, not an addition.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Tonal Separation Rule",
+        "body": "When an element needs to separate from the wall, change its tone or draw a hairline around it. Never lift it. If it looks like a 2014 app, a shadow was used where a hairline belonged.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do let exhibited work be the loudest color on any screen. The shell is inert on purpose.",
+      "Do keep every corner sharp (0px). Radius exists only for the logo dot and the success circle.",
+      "Do draw structure with 1px hairlines at 12% ink instead of reaching for borders, boxes or cards.",
+      "Do keep body copy inside 65ch using max-w-prose-narrow.",
+      "Do keep --stone at #6E6961 or darker. It is a contrast floor, tuned to clear 4.5:1 on ivory.",
+      "Do gate every animation behind gsap.matchMedia so reduced-motion visitors get a fully static page rather than a broken one.",
+      "Do keep color-scheme: only light. It prevents Android and Chrome auto-dark from inverting the ivory.",
+      "Do write section captions as short nouns when one survives the ration, and prefer deleting it."
+    ],
+    "donts": [
+      "Don't put a caption above every section. The cap is one per three sections including the hero. This is the most violated rule in this system, and in Polish the small-caps register reads stilted where it reads natural in English.",
+      "Don't add a second shadow. The framed work image owns the only one.",
+      "Don't build anything resembling a Wix or template marketplace: no grids of theme thumbnails, no wybierz szablon, no checkmark comparison columns.",
+      "Don't build anything resembling the default SaaS startup landing page: no dark hero, no gradient text, no three equal feature cards, no fake dashboard screenshot, no Trusted by logo wall.",
+      "Don't ship a testimonial, a client logo, a client count, or a review. There are none.",
+      "Don't invent precise-sounding numbers that no real data supports.",
+      "Don't use an em-dash anywhere in visible copy. Regular hyphens only.",
+      "Don't add dark mode. The single light composition is a decision, not an omission.",
+      "Don't use Kiln Orange as a button fill, a section background, or a gradient. Five roles, no sixth.",
+      "Don't lift anything on hover. Color transitions only, no translate, no scale, no shadow."
+    ]
+  }
+}

@@ -55,7 +55,7 @@ export const INDUSTRIES: Industry[] = [
     exampleWorkId: "bambino",
     faq: [
       { q: "Czy muszę mieć gotowe zdjęcia?", a: "Nie. Jeśli masz dobre zdjęcia z telefonu, wykorzystamy je. Jeśli nie, podpowiem, co i jak sfotografować, żeby kawiarnia wyglądała apetycznie." },
-      { q: "Czy dodacie menu, które sam zmienię?", a: "Tak. Menu układam tak, żeby dało się je łatwo aktualizować, kiedy zmieniasz ofertę albo ceny." },
+      { q: "Czy dodasz menu, które sam zmienię?", a: "Tak. Menu układam tak, żeby dało się je łatwo aktualizować, kiedy zmieniasz ofertę albo ceny." },
       { q: "Ile to trwa?", a: "Darmowy projekt strony głównej dostajesz w 24 godziny. Jeśli się spodoba, gotowa strona powstaje w 72 godziny." },
       { q: "Mam już profil na Instagramie, po co mi strona?", a: "Strona i Instagram grają razem. Profil wpinamy w stronę, a stronę linkujemy z profilu, żeby ludzie z Google trafiali prosto do Ciebie." },
     ],
@@ -144,7 +144,7 @@ export const INDUSTRIES: Industry[] = [
     ],
     exampleWorkId: "fryzjer",
     faq: [
-      { q: "Czy dodacie rezerwację online?", a: "Tak. Wpinam system rezerwacji, którego używasz, albo robię prosty formularz zgłoszeniowy." },
+      { q: "Czy dodasz rezerwację online?", a: "Tak. Wpinam system rezerwacji, którego używasz, albo robię prosty formularz zgłoszeniowy." },
       { q: "Mam dużo zabiegów, jak to poukładać?", a: "Grupuję zabiegi w czytelne kategorie z cenami, żeby klientka szybko znalazła to, czego szuka." },
       { q: "Czy strona będzie pasować do mojego Instagrama?", a: "Tak. Dobieram kolory i styl tak, żeby strona i profil wyglądały jak jedna, spójna marka." },
       { q: "Ile trwa realizacja?", a: "Darmowy projekt w 24 godziny, gotowa strona w 72 godziny od akceptacji." },

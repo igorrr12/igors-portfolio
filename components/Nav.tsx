@@ -21,7 +21,8 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
 
   return (
     <header className={overlay ? "absolute inset-x-0 top-0 z-40" : "relative z-40 border-b border-line bg-ivory"}>
-      <div className="gallery-frame flex min-h-[44px] items-center justify-between py-5">
+      {/* py-4 keeps the bar under the 80px desktop ceiling (was 85px at py-5). */}
+      <div className="gallery-frame flex min-h-[44px] items-center justify-between py-4">
         <Link href="/" aria-label="Sitelab — strona główna" className="inline-flex min-h-[44px] items-center">
           <Logo />
         </Link>
@@ -34,7 +35,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
           ))}
           <a
             href="#kontakt"
-            className="inline-flex min-h-[40px] items-center bg-ink px-4 text-sm font-medium text-ivory transition-colors hover:bg-black"
+            className="press inline-flex min-h-[40px] items-center bg-ink px-4 text-sm font-medium text-ivory hover:bg-black"
           >
             Kontakt
           </a>
@@ -49,15 +50,15 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
           className="inline-flex h-11 w-11 items-center justify-center sm:hidden"
         >
           <span className="relative block h-3 w-5">
-            <span className={`absolute left-0 top-0 h-px w-5 bg-ink transition-transform duration-300 ${open ? "translate-y-[6px] rotate-45" : ""}`} />
-            <span className={`absolute left-0 top-[6px] h-px w-5 bg-ink transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
-            <span className={`absolute left-0 top-[12px] h-px w-5 bg-ink transition-transform duration-300 ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+            <span className={`absolute left-0 top-0 h-px w-5 bg-ink motion-safe:transition-transform motion-safe:duration-300 ${open ? "translate-y-[6px] rotate-45" : ""}`} />
+            <span className={`absolute left-0 top-[6px] h-px w-5 bg-ink motion-safe:transition-opacity motion-safe:duration-200 ${open ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 top-[12px] h-px w-5 bg-ink motion-safe:transition-transform motion-safe:duration-300 ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
           </span>
         </button>
       </div>
 
       {open && (
-        <nav id="nav-mobile" className="gallery-frame flex flex-col gap-1 border-t border-line bg-ivory pb-6 pt-2 sm:hidden">
+        <nav id="nav-mobile" className="menu-in gallery-frame flex flex-col gap-1 border-t border-line bg-ivory pb-6 pt-2 sm:hidden">
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="flex min-h-[44px] items-center text-base font-medium">
               {l.label}
@@ -66,7 +67,7 @@ export function Nav({ overlay = false }: { overlay?: boolean }) {
           <a
             href="#kontakt"
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex min-h-[48px] items-center justify-center bg-ink px-5 text-base font-medium text-ivory"
+            className="press mt-2 inline-flex min-h-[48px] items-center justify-center bg-ink px-5 text-base font-medium text-ivory"
           >
             Kontakt
           </a>

@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Nav overlay />
       <ProgressLine />
-      <main className="relative">
+      <main id="tresc" className="relative">
         <GuideLine />
         <Cover />
         <Exhibition />

@@ -71,8 +71,11 @@ export function DistrictPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* Real heading rather than a tracked-caps caption (caption ration). */}
       <section className="gallery-frame pt-16 sm:pt-24">
-        <p className="caption caption-dot">Dla kogo pracuję {d.locative}</p>
+        <h2 className="font-display text-2xl font-medium tracking-[-0.01em] sm:text-3xl">
+          Dla kogo pracuję {d.locative}
+        </h2>
         <ul className="mt-6 flex flex-wrap gap-2.5">
           {d.typicalBusinesses.map((b) => (
             <li key={b} className="border border-line bg-white/60 px-4 py-2 text-sm text-stone">
@@ -82,10 +85,11 @@ export function DistrictPage({ slug }: { slug: string }) {
         </ul>
       </section>
 
+      {/* "Z naszej galerii" was the agency plural in a first-person brand; the
+          work labels below say what these are without a section caption. */}
       {works.length > 0 && (
         <section className="gallery-frame pt-16 sm:pt-24">
-          <p className="caption caption-dot">Z naszej galerii</p>
-          <div className="mt-6 grid gap-8">
+          <div className="grid gap-8">
             {works.map((w) => (
               <Link key={w.id} href={`/realizacje/${w.slug}`} className="group block">
                 <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.25)]">
@@ -94,12 +98,13 @@ export function DistrictPage({ slug }: { slug: string }) {
                     alt={w.alt}
                     fill
                     sizes="(min-width: 1240px) 1120px, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
                     quality={90}
                   />
                 </div>
                 <p className="caption mt-4">
-                  <span className="text-ink">„{w.name}”</span> · {w.sector} · projekt koncepcyjny
+                  <span className="text-ink">„{w.name}”</span> · {w.sector}
+                  <span className="mt-1 block">projekt koncepcyjny</span>
                 </p>
               </Link>
             ))}
@@ -107,11 +112,9 @@ export function DistrictPage({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* No caption: the Placard's own rows name the offer. */}
       <section className="gallery-frame pt-16 sm:pt-24">
-        <p className="caption caption-dot">Oferta</p>
-        <div className="mt-6">
-          <Placard />
-        </div>
+        <Placard />
       </section>
 
       <RelatedLinks links={related} />

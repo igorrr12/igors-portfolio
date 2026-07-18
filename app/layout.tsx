@@ -90,6 +90,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pl" className={`${gambetta.variable} ${satoshi.variable}`}>
       <body className="font-sans">
+        {/* Keyboard skip link: invisible until focused, then a small ink plaque
+            top-left. Both <main> elements (SiteFrame + homepage) carry id="tresc". */}
+        <a
+          href="#tresc"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-medium focus:text-ivory"
+        >
+          Przejdź do treści
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

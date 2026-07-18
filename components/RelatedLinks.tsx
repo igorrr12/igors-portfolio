@@ -14,7 +14,9 @@ export function RelatedLinks({
   if (links.length === 0) return null;
   return (
     <section className="gallery-frame pt-16 sm:pt-24">
-      <p className="caption caption-dot">{title}</p>
+      {/* Sentence-case label, not a tracked-caps caption: this block needs to
+          be named, but it should not spend one of the page's three captions. */}
+      <p className="text-sm text-stone">{title}</p>
       <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
         {links.map((l) => (
           <li key={`${l.href}-${l.label}`}>

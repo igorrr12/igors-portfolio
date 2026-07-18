@@ -6,7 +6,7 @@
 export function Logo({ tone = "ink" }: { tone?: "ink" | "white" }) {
   return (
     <span
-      className={`select-none font-sans text-[1.3rem] font-bold lowercase leading-none tracking-tight ${
+      className={`select-none font-sans text-xl font-bold lowercase leading-none tracking-tight ${
         tone === "ink" ? "text-ink" : "text-white"
       }`}
     >
