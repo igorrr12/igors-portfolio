@@ -1,10 +1,12 @@
-import { CONTACT, igDmLink, mailLink } from "@/lib/config";
-import { Instagram, Mail } from "./icons";
+import { CONTACT, igDmLink, mailLink, telLink } from "@/lib/config";
+import { Instagram, Mail, Phone } from "./icons";
 
 /**
  * Sticky bottom contact bar, phones only. Keeps direct contact (Instagram DM
- * + email) one tap away on every page, where most traffic lands. Hidden on
- * sm+ where the nav "Kontakt" button and footer already cover it.
+ * + email + phone) one tap away on every page, where most traffic lands.
+ * Hidden on sm+ where the nav "Kontakt" button and footer already cover it.
+ * The phone button matters for the cold-email audience (warsztaty, catering,
+ * biura), which often will not touch Instagram.
  */
 export function MobileContactBar() {
   return (
@@ -20,6 +22,13 @@ export function MobileContactBar() {
       >
         <Instagram className="h-4 w-4" style={{ width: 16, height: 16 }} />
         Napisz na Instagramie
+      </a>
+      <a
+        href={telLink}
+        aria-label={`Zadzwoń: ${CONTACT.phone}`}
+        className="press flex min-h-[46px] w-[46px] items-center justify-center border border-ink/25 text-ink hover:border-accent hover:text-accent"
+      >
+        <Phone className="h-5 w-5" />
       </a>
       <a
         href={mailLink}

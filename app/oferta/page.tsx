@@ -8,7 +8,7 @@ import { PageHero } from "@/components/PageHero";
 export const metadata: Metadata = buildMetadata({
   title: "Oferta — strony internetowe dla firm w Warszawie | Sitelab",
   description:
-    "Strony internetowe dla warszawskich firm: kawiarnie, restauracje, barber, salony, kwiaciarnie i piekarnie. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+    "Strony internetowe dla warszawskich firm: kawiarnie, restauracje, barber, salony, kwiaciarnie i piekarnie. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
   path: "/oferta",
 });
 

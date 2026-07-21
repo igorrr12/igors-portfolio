@@ -14,6 +14,8 @@ Owners of small local businesses in Warsaw: cafés, restaurants, barbers, beauty
 
 Two entry points, and the **cold one is primary**. Most first impressions happen on a district or industry page (`/strony-dla-kawiarni`, `/strony-internetowe/mokotow`) arriving from Google, not on the gallery homepage. A stranger who has never heard of Sitelab meets a template page first and the exhibition second. The warm reader (someone who already received a mockup by Instagram DM) is the secondary audience, and for them the site is a credibility check rather than a discovery channel.
 
+> **Addendum 2026-07-21 (business audit):** the paragraph above describes the *eventual* state. The domain is weeks old, so SEO traffic will be negligible until roughly 2026-11; until then the primary real reader is an **outreach recipient doing a credibility check** after a cold email from igor@getsitelab.pl or a DM — typically a catering/services owner, often older and not on Instagram. Judge conversion changes against that reader first (visible email + phone matter more than the DM CTA for them). Business plan of record: `../STRATEGY.md`.
+
 ## Product Purpose
 
 Turn a stranger's search for a local web designer into one Instagram DM. The site sells a specific offer: a free, custom-designed mockup of the visitor's own business, made before any money changes hands. Success is a DM, not a form fill, not a phone call, not time on page.

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CONTACT, dmMessage, igDmLink, mailLink } from "@/lib/config";
+import { CONTACT, dmMessage, igDmLink, mailLink, telLink } from "@/lib/config";
 import { CONTACT_SECTION } from "@/lib/content";
 import { ArrowRight, Check, Instagram } from "./icons";
 import { Reveal } from "./Reveal";
@@ -117,6 +117,19 @@ export function ContactSection() {
                 <Instagram className="h-4 w-4 text-accent" style={{ width: 16, height: 16 }} />
                 {CONTACT_SECTION.privacy}
               </p>
+              {/* The email/phone path is load-bearing for the cold-email audience
+                  (catering, warsztaty, biura rachunkowe), who often has no
+                  Instagram at all. It must be visible without interacting. */}
+              <p className="mt-3 text-sm text-stone">
+                {CONTACT_SECTION.altContactLead}{" "}
+                <a href={mailLink} className="link-under whitespace-nowrap text-ink">
+                  {CONTACT.email}
+                </a>{" "}
+                ·{" "}
+                <a href={telLink} className="link-under whitespace-nowrap text-ink">
+                  {CONTACT.phone}
+                </a>
+              </p>
             </form>
           ) : (
             <div className="max-w-md">
@@ -159,7 +172,9 @@ export function ContactSection() {
                   {CONTACT_SECTION.preferEmail}
                 </a>
               </div>
-              <p className="mt-4 text-xs text-stone">{CONTACT.email}</p>
+              <p className="mt-4 text-xs text-stone">
+                {CONTACT.email} · {CONTACT.phone}
+              </p>
 
               {/* Way back: the sent state used to be a one-way door, so a typo in
                   the business name could only be fixed by reloading the page. */}

@@ -32,7 +32,7 @@ export const DISTRICTS: District[] = [
     h1: "Strony internetowe dla firm na Mokotowie",
     metaTitle: "Strony internetowe dla firm na Mokotowie | Sitelab",
     metaDescription:
-      "Projektuję strony dla lokalnych firm na Mokotowie: kawiarni, salonów, barberów i usług. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Projektuję strony dla lokalnych firm na Mokotowie: kawiarni, salonów, barberów i usług. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Warszawa · Mokotów",
     lead: "Strony dla mokotowskich firm, które chcą być pierwszym wyborem w okolicy.",
     intro: [
@@ -60,7 +60,7 @@ export const DISTRICTS: District[] = [
     h1: "Strony internetowe dla firm w Śródmieściu",
     metaTitle: "Strony internetowe dla firm w Śródmieściu | Sitelab",
     metaDescription:
-      "Strony dla firm w centrum Warszawy: restauracji, kawiarni, kwiaciarni i usług. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strony dla firm w centrum Warszawy: restauracji, kawiarni, kwiaciarni i usług. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Warszawa · Śródmieście",
     lead: "Strony dla firm z centrum, gdzie o uwagę klienta jest najtrudniej.",
     intro: [
@@ -88,7 +88,7 @@ export const DISTRICTS: District[] = [
     h1: "Strony internetowe dla firm na Woli",
     metaTitle: "Strony internetowe dla firm na Woli | Sitelab",
     metaDescription:
-      "Strony dla firm na Woli: nowej gastronomii, kawiarni, piekarni i usług przy biurowcach. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strony dla firm na Woli: nowej gastronomii, kawiarni, piekarni i usług przy biurowcach. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Warszawa · Wola",
     lead: "Strony dla firm z Woli, dzielnicy, która rośnie najszybciej w mieście.",
     intro: [
@@ -116,7 +116,7 @@ export const DISTRICTS: District[] = [
     h1: "Strony internetowe dla firm na Pradze-Południe",
     metaTitle: "Strony internetowe dla firm na Pradze-Południe | Sitelab",
     metaDescription:
-      "Strony dla firm z Pragi-Południe i Saskiej Kępy: restauracji, kawiarni, barberów i usług. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strony dla firm z Pragi-Południe i Saskiej Kępy: restauracji, kawiarni, barberów i usług. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Warszawa · Praga-Południe",
     lead: "Strony dla firm z Pragi-Południe, z klimatem Saskiej Kępy w tle.",
     intro: [
@@ -144,7 +144,7 @@ export const DISTRICTS: District[] = [
     h1: "Strony internetowe dla firm na Ochocie",
     metaTitle: "Strony internetowe dla firm na Ochocie | Sitelab",
     metaDescription:
-      "Strony dla firm na Ochocie: kawiarni, salonów, piekarni i lokalnych usług. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strony dla firm na Ochocie: kawiarni, salonów, piekarni i lokalnych usług. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Warszawa · Ochota",
     lead: "Strony dla ochockich firm, blisko mieszkańców i studentów.",
     intro: [
@@ -172,7 +172,7 @@ export const DISTRICTS: District[] = [
     h1: "Strony internetowe dla firm na Żoliborzu",
     metaTitle: "Strony internetowe dla firm na Żoliborzu | Sitelab",
     metaDescription:
-      "Strony dla kameralnych firm z Żoliborza: kawiarni, kwiaciarni, salonów i usług. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strony dla kameralnych firm z Żoliborza: kawiarni, kwiaciarni, salonów i usług. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Warszawa · Żoliborz",
     lead: "Strony dla kameralnych firm z Żoliborza, blisko stałych klientów.",
     intro: [

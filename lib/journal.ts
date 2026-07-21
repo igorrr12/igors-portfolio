@@ -46,7 +46,7 @@ export const ARTICLES: Article[] = [
       { type: "p", text: "Cena samego wykonania to nie wszystko. Dochodzi domena, czyli adres strony, i hosting, czyli miejsce, w którym strona jest publikowana. Czasem dokładane są opłaty za każdą drobną zmianę albo abonament, który rośnie z czasem." },
       { type: "p", text: "Dlatego warto pytać wprost: co jest w cenie, co kosztuje dodatkowo i ile zapłacę za rok utrzymania. Brak jasnej odpowiedzi to sygnał ostrzegawczy." },
       { type: "h2", text: "Ile realnie kosztuje strona dla małej firmy" },
-      { type: "p", text: "Dla lokalnej firmy w Warszawie sensowna, szybka i dobrze wyglądająca strona wizytówka to wydatek rzędu kilkuset złotych, o ile ma jasny zakres. U mnie jest to stała cena 399 zł za gotową stronę, a projekt strony głównej dostajesz najpierw za darmo, żeby ocenić efekt bez ryzyka." },
+      { type: "p", text: "Dla lokalnej firmy w Warszawie sensowna, szybka i dobrze wyglądająca strona wizytówka to wydatek rzędu kilkuset złotych, o ile ma jasny zakres. U mnie strona wizytówka to 399 zł, cenę znasz przed startem, a projekt strony głównej dostajesz najpierw za darmo, żeby ocenić efekt bez ryzyka." },
       { type: "p", text: "Najważniejsze, żeby cena była z góry znana i nie rosła po drodze. Wtedy strona jest inwestycją, a nie otwartym rachunkiem." },
     ],
     related: [

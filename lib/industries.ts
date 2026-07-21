@@ -39,7 +39,7 @@ export const INDUSTRIES: Industry[] = [
     h1: "Strony internetowe dla kawiarni w Warszawie",
     metaTitle: "Strony internetowe dla kawiarni w Warszawie | Sitelab",
     metaDescription:
-      "Strona dla kawiarni, która oddaje klimat miejsca: menu, zdjęcia, godziny i dojazd od progu. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strona dla kawiarni, która oddaje klimat miejsca: menu, zdjęcia, godziny i dojazd od progu. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Oferta · Kawiarnie",
     lead: "Strona, która oddaje klimat Twojej kawiarni i sprowadza gości z okolicy.",
     intro: [
@@ -69,7 +69,7 @@ export const INDUSTRIES: Industry[] = [
     h1: "Strony internetowe dla restauracji w Warszawie",
     metaTitle: "Strony internetowe dla restauracji w Warszawie | Sitelab",
     metaDescription:
-      "Strona dla restauracji z menu, cenami i rezerwacją widocznymi od razu. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strona dla restauracji z menu, cenami i rezerwacją widocznymi od razu. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Oferta · Restauracje i bary",
     lead: "Menu, ceny i rezerwacja od progu. Strona, która zapełnia stoliki.",
     intro: [
@@ -87,7 +87,7 @@ export const INDUSTRIES: Industry[] = [
       { q: "Mam menu w PDF, wystarczy?", a: "Lepiej mieć menu wprost na stronie. Przepisuję je w czytelnej formie, która działa na telefonie i pomaga w Google. PDF mogę zostawić dodatkowo do druku." },
       { q: "Czy podłączycie rezerwacje online?", a: "Tak, mogę wpiąć system rezerwacji, z którego korzystasz, albo zrobić prosty formularz i kontakt telefoniczny, jeśli wolisz." },
       { q: "Jak często można aktualizować menu?", a: "Kiedy tylko chcesz. Układam menu tak, żeby zmiana dań i cen była szybka." },
-      { q: "Ile kosztuje taka strona?", a: "Stała cena 399 zł za gotową stronę. Projekt strony głównej robię za darmo, żebyś zobaczył efekt bez ryzyka." },
+      { q: "Ile kosztuje taka strona?", a: "Strona wizytówka to 399 zł i cenę znasz przed startem. Projekt strony głównej robię za darmo, żebyś zobaczył efekt bez ryzyka." },
     ],
     relatedDistricts: ["srodmiescie", "praga-poludnie", "wola"],
     relatedArticleSlug: "czego-potrzebuje-strona-restauracji",
@@ -99,7 +99,7 @@ export const INDUSTRIES: Industry[] = [
     h1: "Strony internetowe dla barberów i fryzjerów w Warszawie",
     metaTitle: "Strony dla barbera i fryzjera w Warszawie | Sitelab",
     metaDescription:
-      "Strona dla barbera i fryzjera z rezerwacją online, cennikiem i galerią efektów. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strona dla barbera i fryzjera z rezerwacją online, cennikiem i galerią efektów. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Oferta · Barber i fryzjer",
     lead: "Rezerwacja w dwa kliknięcia, jasny cennik i galeria efektów.",
     intro: [
@@ -117,7 +117,7 @@ export const INDUSTRIES: Industry[] = [
       { q: "Podłączycie mój system rezerwacji?", a: "Tak. Wpinam Booksy, Moment albo inny system, z którego korzystasz. Jeśli nie masz żadnego, zrobię prosty formularz i kontakt." },
       { q: "Nie mam profesjonalnych zdjęć.", a: "Wystarczą dobre zdjęcia telefonem. Podpowiem, jak ustawić światło i kadr, żeby efekty wyglądały mocno." },
       { q: "Czy strona pomoże w Google?", a: "Tak. Strona z cennikiem i lokalizacją pomaga pojawiać się na hasła w rodzaju barber i dzielnica. Zajmuję się też podstawową stroną techniczną." },
-      { q: "Ile to kosztuje?", a: "399 zł za gotową stronę, stała cena. Projekt strony głównej dostajesz najpierw za darmo." },
+      { q: "Ile to kosztuje?", a: "Strona wizytówka to 399 zł i cenę znasz przed startem. Projekt strony głównej dostajesz najpierw za darmo." },
     ],
     relatedDistricts: ["mokotow", "praga-poludnie", "zoliborz"],
     relatedArticleSlug: "strona-internetowa-czy-instagram",
@@ -129,7 +129,7 @@ export const INDUSTRIES: Industry[] = [
     h1: "Strony internetowe dla salonów kosmetycznych w Warszawie",
     metaTitle: "Strony dla salonu kosmetycznego w Warszawie | Sitelab",
     metaDescription:
-      "Strona dla salonu beauty z rezerwacją, cennikiem zabiegów i galerią efektów. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strona dla salonu beauty z rezerwacją, cennikiem zabiegów i galerią efektów. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Oferta · Salony kosmetyczne",
     lead: "Rezerwacja, cennik zabiegów i estetyka, która buduje zaufanie.",
     intro: [
@@ -159,7 +159,7 @@ export const INDUSTRIES: Industry[] = [
     h1: "Strony internetowe dla kwiaciarni w Warszawie",
     metaTitle: "Strony internetowe dla kwiaciarni w Warszawie | Sitelab",
     metaDescription:
-      "Strona dla kwiaciarni z bukietami, cenami i dostawą tego samego dnia. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strona dla kwiaciarni z bukietami, cenami i dostawą tego samego dnia. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Oferta · Kwiaciarnie",
     lead: "Bukiety, ceny i dostawa tego samego dnia. Strona, która zbiera zamówienia.",
     intro: [
@@ -177,7 +177,7 @@ export const INDUSTRIES: Industry[] = [
       { q: "Czy zrobicie sklep online?", a: "Na start wystarczy czytelna galeria bukietów z cenami i zamówieniem przez formularz lub wiadomość. Pełny sklep możemy dodać później, gdy będzie potrzebny." },
       { q: "Jak pokazać dostawę na dziś?", a: "Umieszczam informację o dostawie tego samego dnia w widocznym miejscu, razem z godziną graniczną na zamówienie." },
       { q: "Zdjęcia zmieniają się co sezon.", a: "Układam galerię tak, żeby wymiana zdjęć bukietów była szybka i nie psuła układu." },
-      { q: "Ile to kosztuje?", a: "Stała cena 399 zł za gotową stronę. Projekt strony głównej robię najpierw za darmo." },
+      { q: "Ile to kosztuje?", a: "Strona wizytówka to 399 zł i cenę znasz przed startem. Projekt strony głównej robię najpierw za darmo." },
     ],
     relatedDistricts: ["srodmiescie", "zoliborz", "ochota"],
     relatedArticleSlug: "strona-internetowa-czy-instagram",
@@ -189,7 +189,7 @@ export const INDUSTRIES: Industry[] = [
     h1: "Strony internetowe dla piekarni i cukierni w Warszawie",
     metaTitle: "Strony dla piekarni i cukierni w Warszawie | Sitelab",
     metaDescription:
-      "Strona dla piekarni i cukierni z ofertą, zamówieniami na okazje i lokalizacją. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+      "Strona dla piekarni i cukierni z ofertą, zamówieniami na okazje i lokalizacją. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
     kicker: "Oferta · Piekarnie i cukiernie",
     lead: "Świeża oferta, zamówienia na torty i lokalizacja od progu.",
     intro: [

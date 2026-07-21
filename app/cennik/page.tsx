@@ -12,7 +12,7 @@ import { Check } from "@/components/icons";
 export const metadata: Metadata = buildMetadata({
   title: "Ile kosztuje strona internetowa w Warszawie? Cennik | Sitelab",
   description:
-    "Strona internetowa dla firmy w Warszawie w stałej cenie 399 zł. Darmowy projekt w 24 h, płatność po akceptacji. Zobacz dokładnie, co zawiera cena.",
+    "Strona internetowa dla firmy w Warszawie od 399 zł, cena znana przed startem. Darmowy projekt w 24 h, płatność po akceptacji. Zobacz dokładnie, co zawiera cena.",
   path: "/cennik",
 });
 

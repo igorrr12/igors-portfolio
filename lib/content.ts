@@ -30,10 +30,10 @@ export const CURATOR = {
 export const PLACARD = {
   rows: [
     { label: "Projekt koncepcyjny", value: "darmowy, w 24 h" },
-    { label: "Strona gotowa do publikacji", value: "399 zł" },
+    { label: "Strona gotowa do publikacji", value: "od 399 zł" },
     { label: "Realizacja", value: "72 h" },
   ],
-  note: "Cena stała. Na etapie projektu bez żadnych zobowiązań.",
+  note: "Cenę znasz przed startem. Na etapie projektu bez żadnych zobowiązań.",
 };
 
 export const PROCESS = {
@@ -43,7 +43,7 @@ export const PROCESS = {
     {
       nr: "01",
       title: "Rozmowa",
-      desc: "Piszesz do mnie na Instagramie. Kilka pytań o firmę, klientów i to, co strona ma robić.",
+      desc: "Piszesz do mnie na Instagramie albo mailem. Kilka pytań o firmę, klientów i to, co strona ma robić.",
     },
     {
       nr: "02",
@@ -84,12 +84,13 @@ export const CONTACT_SECTION = {
   copied: "Skopiowano",
   openInstagram: "Otwórz Instagram",
   preferEmail: "Wolisz e-mail?",
+  altContactLead: "Nie używasz Instagrama?",
 };
 
 // ─── Cennik ───────────────────────────────────────────────────
 export const CENNIK = {
   intro:
-    "Bez ukrytych kosztów i abonamentów, które rosną z czasem. Jedna stała cena za gotową stronę, a zanim zapłacisz, widzisz gotowy projekt strony głównej.",
+    "Bez ukrytych kosztów. Strona wizytówka to 399 zł, każde rozszerzenie ma cenę podaną z góry, a zanim cokolwiek zapłacisz, widzisz gotowy projekt strony głównej.",
   includes: [
     "Projekt strony głównej za darmo, zanim cokolwiek zapłacisz",
     "Gotowa strona wizytówka, dopasowana do Twojej firmy",
@@ -106,24 +107,24 @@ export const CENNIK = {
   excludesNote:
     "Jeśli potrzebujesz czegoś spoza tej listy, powiem wprost, ile to kosztuje, zanim zaczniemy.",
   faq: [
-    { q: "Dlaczego stała cena, a nie wycena za godziny?", a: "Bo chcesz wiedzieć, ile zapłacisz, zanim zaczniemy. 399 zł to pełna cena gotowej strony wizytówki, bez dopłat po drodze." },
+    { q: "Dlaczego stała cena, a nie wycena za godziny?", a: "Bo chcesz wiedzieć, ile zapłacisz, zanim zaczniemy. Strona wizytówka to 399 zł, a każde rozszerzenie ma cenę podaną z góry, bez dopłat po drodze." },
     { q: "Kiedy płacę?", a: "Po akceptacji projektu, nie z góry. Najpierw za darmo przygotowuję projekt strony głównej, a Ty decydujesz bez zobowiązań." },
-    { q: "Czy są jakieś koszty co miesiąc?", a: "Ode mnie nie. Zostają tylko domena i hosting, czyli kilkadziesiąt złotych rocznie, płacone bezpośrednio u dostawcy. Podpowiem, jak to ustawić tanio." },
+    { q: "Czy są jakieś koszty co miesiąc?", a: "Tylko jeśli chcesz. Strona działa bez żadnych stałych opłat u mnie, zostaje domena i hosting, czyli kilkadziesiąt złotych rocznie u dostawcy. A jeśli wolisz nie myśleć o technikaliach, jest opcjonalna Opieka: 49 zł miesięcznie albo 490 zł za rok. W tym hosting, domena pod kontrolą, kopie zapasowe i drobne zmiany raz w miesiącu." },
     { q: "Co, jeśli potrzebuję czegoś więcej niż wizytówki?", a: "Powiem wprost, ile kosztuje dodatkowa funkcja, zanim się na nią zdecydujesz. Żadnych niespodzianek na fakturze." },
   ],
 };
 
 // ─── FAQ ──────────────────────────────────────────────────────
 export const FAQ_ITEMS = [
-  { q: "Ile kosztuje strona?", a: "Stała cena 399 zł za gotową stronę wizytówkę. Projekt strony głównej przygotowuję najpierw za darmo, więc płacisz dopiero, gdy widzisz efekt." },
+  { q: "Ile kosztuje strona?", a: "Strona wizytówka to 399 zł i cenę znasz przed startem. Projekt strony głównej przygotowuję najpierw za darmo, więc płacisz dopiero, gdy widzisz efekt. Rozszerzenia wyceniam z góry." },
   { q: "Co dostaję za darmo?", a: "Projekt strony głównej dopasowany do Twojej firmy, w 24 godziny i bez żadnych zobowiązań. Jeśli się nie spodoba, nic nie tracisz." },
   { q: "Ile trwa zrobienie strony?", a: "Projekt strony głównej w 24 godziny. Jeśli go akceptujesz, gotowa strona powstaje w 72 godziny." },
   { q: "Czy strona będzie działać na telefonie?", a: "Tak. Każdą stronę robię tak, żeby dobrze wyglądała i szybko działała na telefonie, bo tam trafia większość klientów." },
   { q: "Czyja jest domena i strona?", a: "Twoja. Stronę publikuję na Twojej domenie i na Twoim koncie, więc masz nad nią pełną kontrolę." },
   { q: "Nie mam jeszcze domeny.", a: "Pomogę ją wybrać i podpiąć. Domena to koszt kilkudziesięciu złotych rocznie, płacony bezpośrednio u rejestratora." },
   { q: "Czy pomożecie z Google?", a: "Tak. Robię podstawową optymalizację pod wyszukiwarkę i podpowiem, jak zadbać o wizytówkę w Mapach Google." },
-  { q: "Jak wygląda kontakt i płatność?", a: "Piszemy na Instagramie albo mailowo. Płatność następuje po akceptacji projektu, nie z góry." },
-  { q: "Co, jeśli chcę później coś zmienić?", a: "Drobne poprawki po publikacji są naturalną częścią pracy. Większe rozbudowy wyceniam osobno i zawsze mówię cenę z góry." },
+  { q: "Jak wygląda kontakt i płatność?", a: "Piszemy na Instagramie, mailowo, albo po prostu dzwonisz: 579 997 261. Płatność następuje po akceptacji projektu, nie z góry." },
+  { q: "Co, jeśli chcę później coś zmienić?", a: "Drobne poprawki po publikacji są naturalną częścią pracy. Jeśli wolisz mieć to z głowy na stałe, jest opcjonalna Opieka za 49 zł miesięcznie: hosting, kopie zapasowe i drobne zmiany raz w miesiącu. Większe rozbudowy wyceniam osobno i zawsze mówię cenę z góry." },
 ];
 
 // ─── O mnie ───────────────────────────────────────────────────

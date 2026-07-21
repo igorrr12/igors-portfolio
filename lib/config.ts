@@ -7,6 +7,7 @@ export const CONTACT = {
   brand: "Sitelab Warsaw",
   instagram: "warsaw.sitelab", // without the @
   email: "igor@getsitelab.pl",
+  phone: "+48 579 997 261", // display form; telLink strips the spaces
   city: "Warszawa",
   weeklySlots: 3,
 };
@@ -18,6 +19,8 @@ export const igLink = `https://instagram.com/${CONTACT.instagram}`;
 export const igDmLink = `https://ig.me/m/${CONTACT.instagram}`;
 
 export const mailLink = `mailto:${CONTACT.email}`;
+
+export const telLink = `tel:${CONTACT.phone.replace(/\s/g, "")}`;
 
 /**
  * Ready-to-send message the visitor pastes into the DM.

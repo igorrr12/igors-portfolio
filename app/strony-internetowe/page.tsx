@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = buildMetadata({
   title: "Strony internetowe dla firm w Warszawie | Sitelab",
   description:
-    "Strony internetowe dla firm w Warszawie i dzielnicach: Mokotów, Śródmieście, Wola, Praga-Południe, Ochota, Żoliborz. Darmowy projekt w 24 h, gotowa strona za 399 zł.",
+    "Strony internetowe dla firm w Warszawie i dzielnicach: Mokotów, Śródmieście, Wola, Praga-Południe, Ochota, Żoliborz. Darmowy projekt w 24 h, gotowa strona od 399 zł.",
   path: "/strony-internetowe",
 });
 

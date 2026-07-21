@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://getsitelab.pl"),
   title: "Sitelab — pracownia stron internetowych · Warszawa",
   description:
-    "Galeria Sitelab: strony internetowe dla lokalnych firm w Warszawie. Darmowy projekt strony głównej w 24 h, gotowa strona w 72 h za 399 zł.",
+    "Galeria Sitelab: strony internetowe dla lokalnych firm w Warszawie. Darmowy projekt strony głównej w 24 h, gotowa strona w 72 h od 399 zł.",
   keywords: [
     "strony internetowe Warszawa",
     "strona dla firmy",
@@ -68,8 +68,9 @@ const jsonLd = {
   image: "https://getsitelab.pl/icon-512.png",
   logo: "https://getsitelab.pl/icon-512.png",
   description:
-    "Pracownia stron internetowych dla lokalnych firm w Warszawie. Darmowy projekt strony głównej w 24 h, gotowa strona w 72 h za 399 zł.",
+    "Pracownia stron internetowych dla lokalnych firm w Warszawie. Darmowy projekt strony głównej w 24 h, gotowa strona w 72 h od 399 zł.",
   email: CONTACT.email,
+  telephone: CONTACT.phone,
   sameAs: [igLink],
   areaServed: { "@type": "City", name: CONTACT.city },
   address: {
@@ -77,7 +78,7 @@ const jsonLd = {
     addressLocality: CONTACT.city,
     addressCountry: "PL",
   },
-  priceRange: "399 zł",
+  priceRange: "od 399 zł",
   makesOffer: {
     "@type": "Offer",
     name: "Strona internetowa dla lokalnej firmy",

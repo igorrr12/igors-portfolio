@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT, igLink, mailLink } from "@/lib/config";
+import { CONTACT, igLink, mailLink, telLink } from "@/lib/config";
 import { INDUSTRIES } from "@/lib/industries";
 import { DISTRICTS } from "@/lib/districts";
 import { WORKS } from "@/lib/works";
@@ -59,6 +59,9 @@ export function Footer() {
             </a>
             <a href={mailLink} className="link-under flex w-fit min-h-[44px] items-center">
               {CONTACT.email}
+            </a>
+            <a href={telLink} className="link-under flex w-fit min-h-[44px] items-center">
+              {CONTACT.phone}
             </a>
             <p className="mt-2 text-xs text-white/40">© {new Date().getFullYear()} Sitelab — Warszawa</p>
           </div>
