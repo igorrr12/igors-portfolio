@@ -12,8 +12,9 @@ export function Exhibition() {
       </div>
 
       {/* Unveil direction alternates per work, so the ritual repeats
-          without feeling copied. */}
-      {WORKS.map((work, i) => (
+          without feeling copied. Home shows the curated set; /realizacje
+          holds the full gallery. */}
+      {WORKS.filter((w) => w.homepage).map((work, i) => (
         <WorkFrame key={work.id} work={work} flip={i % 2 === 1} />
       ))}
 

@@ -50,36 +50,54 @@ export function WorkDetail({ slug }: { slug: string }) {
       <PageHero kicker={`Realizacja · ${w.district}`} title={w.name} sub={`${w.sector}. ${w.problem}`} />
 
       <section className="gallery-frame pt-16 sm:pt-24">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <figure>
-            <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white">
-              <Image
-                src={w.before}
-                alt={`Strona „${w.name}” przed zmianą`}
-                fill
-                sizes="(min-width: 1024px) 560px, 100vw"
-                className="object-cover"
-                quality={85}
-              />
-            </div>
-            <figcaption className="caption mt-3">Przed</figcaption>
-          </figure>
+        {w.before ? (
+          <div className="grid gap-8 lg:grid-cols-2">
+            <figure>
+              <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white">
+                <Image
+                  src={w.before}
+                  alt={`Strona „${w.name}” przed zmianą`}
+                  fill
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                  className="object-cover"
+                  quality={85}
+                />
+              </div>
+              <figcaption className="caption mt-3">Przed</figcaption>
+            </figure>
+            <figure>
+              <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.25)]">
+                <Image
+                  src={w.image}
+                  alt={w.alt}
+                  fill
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                  className="object-cover"
+                  quality={90}
+                />
+              </div>
+              <figcaption className="caption mt-3">
+                <span className="text-accent">Po</span> · projekt koncepcyjny
+              </figcaption>
+            </figure>
+          </div>
+        ) : (
           <figure>
             <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_1px_2px_rgba(20,19,17,0.04),0_24px_60px_-30px_rgba(20,19,17,0.25)]">
               <Image
                 src={w.image}
                 alt={w.alt}
                 fill
-                sizes="(min-width: 1024px) 560px, 100vw"
+                sizes="(min-width: 1240px) 1120px, 100vw"
                 className="object-cover"
                 quality={90}
               />
             </div>
             <figcaption className="caption mt-3">
-              <span className="text-accent">Po</span> · projekt koncepcyjny
+              <span className="text-accent">Projekt koncepcyjny</span> · {w.sector}
             </figcaption>
           </figure>
-        </div>
+        )}
       </section>
 
       <section className="gallery-frame pt-16 sm:pt-24">
@@ -101,7 +119,7 @@ export function WorkDetail({ slug }: { slug: string }) {
           ))}
         </div>
         <p className="caption mt-8 max-w-prose-narrow normal-case tracking-normal text-stone">
-          To projekt koncepcyjny, przygotowany dla prawdziwego warszawskiego miejsca. Twoja strona powstaje tak samo: od charakteru firmy, nie od szablonu.
+          To projekt koncepcyjny. Twoją stronę projektuję tak samo: zaczynam od charakteru miejsca i tego, co chcesz osiągnąć, nie od gotowego szablonu.
         </p>
       </section>
 

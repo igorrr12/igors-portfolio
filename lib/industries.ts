@@ -52,7 +52,7 @@ export const INDUSTRIES: Industry[] = [
       { title: "Godziny i dojazd", desc: "Godziny otwarcia, adres i mapa nad pierwszą zakładką, bo tego szuka się najczęściej." },
       { title: "Wpięty Instagram", desc: "Profil połączony ze stroną, żeby świeże zdjęcia pracowały na Ciebie." },
     ],
-    exampleWorkId: "bambino",
+    exampleWorkId: "goodly",
     faq: [
       { q: "Czy muszę mieć gotowe zdjęcia?", a: "Nie. Jeśli masz dobre zdjęcia z telefonu, wykorzystamy je. Jeśli nie, podpowiem, co i jak sfotografować, żeby kawiarnia wyglądała apetycznie." },
       { q: "Czy dodasz menu, które sam zmienię?", a: "Tak. Menu układam tak, żeby dało się je łatwo aktualizować, kiedy zmieniasz ofertę albo ceny." },
@@ -142,7 +142,7 @@ export const INDUSTRIES: Industry[] = [
       { title: "Galeria i efekty", desc: "Zdjęcia efektów i wnętrza, które budują zaufanie do salonu." },
       { title: "Estetyka spójna z marką", desc: "Kolory i typografia dobrane do charakteru miejsca, nie z szablonu." },
     ],
-    exampleWorkId: "fryzjer",
+    exampleWorkId: "lila",
     faq: [
       { q: "Czy dodasz rezerwację online?", a: "Tak. Wpinam system rezerwacji, którego używasz, albo robię prosty formularz zgłoszeniowy." },
       { q: "Mam dużo zabiegów, jak to poukładać?", a: "Grupuję zabiegi w czytelne kategorie z cenami, żeby klientka szybko znalazła to, czego szuka." },
@@ -202,7 +202,7 @@ export const INDUSTRIES: Industry[] = [
       { title: "Lokalizacje i godziny", desc: "Adresy punktów, godziny i mapa, jeśli masz więcej niż jedno miejsce." },
       { title: "Wersja mobilna", desc: "Szybka strona na telefon, bo tam klient sprawdza cię po drodze." },
     ],
-    exampleWorkId: "bambino",
+    exampleWorkId: "chlebikawa",
     faq: [
       { q: "Mam kilka punktów, da się to pokazać?", a: "Tak. Układam listę lokalizacji z godzinami i mapą, żeby klient znalazł najbliższy punkt." },
       { q: "Chcę przyjmować zamówienia na torty.", a: "Robię prosty formularz zamówienia z wyborem terminu i opcji, żeby zgłoszenia nie ginęły." },

@@ -18,8 +18,9 @@ export type Work = {
   note: string;
   /** Rendered concept design, 16:10. */
   image: string;
-  /** The original site/state, same aspect ratio, for before/after. */
-  before: string;
+  /** The original site/state, same aspect ratio, for before/after.
+      Omitted on after-only concept pieces (no before/after on the case study). */
+  before?: string;
   alt: string;
   /** One-line framing of what was wrong before. */
   problem: string;
@@ -29,6 +30,9 @@ export type Work = {
   changes: string[];
   /** Matching industry page slug (internal link). */
   industrySlug: string;
+  /** Shown in the homepage exhibition. Category-only pieces omit this so
+      the home gallery stays curated while /realizacje shows every work. */
+  homepage?: boolean;
 };
 
 export const WORKS: Work[] = [
@@ -41,7 +45,7 @@ export const WORKS: Work[] = [
     sector: "Bar mleczny",
     district: "Śródmieście",
     note: "Domowe jedzenie jak za dawnych lat: ciepło, menu i ceny widoczne od progu.",
-    image: "/examples/bambino-after.png",
+    image: "/examples/bambino-after.jpg",
     before: "/examples/bambino-before.png",
     alt: "Projekt strony dla baru mlecznego Bar Bambino — ciepła, apetyczna strona główna z menu i cenami",
     problem:
@@ -57,6 +61,7 @@ export const WORKS: Work[] = [
       "Wersja mobilna, bo większość sprawdza jedzenie w telefonie",
     ],
     industrySlug: "strony-dla-restauracji",
+    homepage: true,
   },
   {
     id: "fryzjer",
@@ -67,7 +72,7 @@ export const WORKS: Work[] = [
     sector: "Salon fryzjerski",
     district: "Mokotów",
     note: "Klasyczne rzemiosło od 1946: mocny kontrast, cennik i rezerwacja w dwa kliknięcia.",
-    image: "/examples/fryzjer-after.png",
+    image: "/examples/fryzjer-after.jpg",
     before: "/examples/fryzjer-before.png",
     alt: "Projekt strony dla salonu Fryzjer Puławska — ciemna, elegancka strona z rezerwacją online",
     problem:
@@ -83,6 +88,7 @@ export const WORKS: Work[] = [
       "Mapa i godziny zawsze pod ręką",
     ],
     industrySlug: "strony-dla-barbera",
+    homepage: true,
   },
   {
     id: "julia",
@@ -93,7 +99,7 @@ export const WORKS: Work[] = [
     sector: "Kwiaciarnia",
     district: "Warszawa",
     note: "Kwiaty, które mówią bez słów: bukiety, ceny i dostawa tego samego dnia.",
-    image: "/examples/julia-after.png",
+    image: "/examples/julia-after.jpg",
     before: "/examples/julia-before.png",
     alt: "Projekt strony dla Kwiaciarni Julia — jasna, delikatna strona z bukietami i zamówieniem z dostawą",
     problem:
@@ -109,6 +115,82 @@ export const WORKS: Work[] = [
       "Delikatna, jasna oprawa pod sezonowe kwiaty",
     ],
     industrySlug: "strony-dla-kwiaciarni",
+    homepage: true,
+  },
+  {
+    id: "goodly",
+    anchor: "praca-04",
+    slug: "kawiarnia-goodly",
+    nr: "04",
+    name: "Goodly Specialty Coffee",
+    sector: "Kawiarnia i palarnia",
+    district: "Wola",
+    note: "Specialty coffee bez ceregieli: kawa, ceny i godziny widoczne od progu.",
+    image: "/examples/kawiarnia-after.jpg",
+    alt: "Projekt strony dla kawiarni Goodly Specialty Coffee — ciepła, zielona strona główna z menu i cenami kawy",
+    problem:
+      "Kameralna palarnia z lojalnymi gośćmi, ale w internecie tylko Instagram. Menu, ceny i godziny trudno znaleźć, a nowy gość nie wie, czego się spodziewać.",
+    story: [
+      "Goodly żyje z powracających gości i dobrej kawy, nie z grafiki. Chciałem, żeby strona działała tak samo: ciepło, konkretnie, z kawą na pierwszym planie.",
+      "Zamiast ogólników postawiłem menu i ceny od razu na stronie głównej, obok godzin i prawdziwych zdjęć z lokalu. Ktoś, kto szuka miejsca na flat white, w sekundę wie, że trafił dobrze.",
+    ],
+    changes: [
+      "Menu i ceny kawy widoczne od razu, bez klikania w podstrony",
+      "Godziny otwarcia i dzielnica nad pierwszą zakładką",
+      "Prawdziwe zdjęcia z lokalu zamiast zdjęć ze stocka",
+      "Wersja mobilna, bo kawiarni szuka się w telefonie",
+    ],
+    industrySlug: "strony-dla-kawiarni",
+  },
+  {
+    id: "chlebikawa",
+    anchor: "praca-05",
+    slug: "cukiernia-chleb-i-kawa",
+    nr: "05",
+    name: "Chleb i Kawa",
+    sector: "Cukiernia i piekarnia",
+    district: "Żoliborz",
+    note: "Świeże wypieki na pierwszym planie: co dziś na ladzie i za ile.",
+    image: "/examples/piekarnia-after.jpg",
+    alt: "Projekt strony dla cukierni i piekarni Chleb i Kawa — ciepła strona z tartami, wypiekami i cenami",
+    problem:
+      "Wypieki znikają do południa, ale w sieci nie widać oferty. Nowy klient nie wie, co jest świeże, o której i ile kosztuje.",
+    story: [
+      "Dobra piekarnia sprzedaje zapachem i świeżością. Strona miała oddać to samo: apetyczne zdjęcia wypieków i jasną informację, co dziś na ladzie.",
+      "Dodałem widoczne ceny, godzinę porannego wypieku i prostą ścieżkę do zamówienia tortu. Zamiast przewijać wiadomości, klient od razu widzi ofertę i wie, kiedy przyjść po świeże.",
+    ],
+    changes: [
+      "Wypieki i ceny widoczne od pierwszego ekranu",
+      "Godzina porannego wypieku, żeby wiadomo było, kiedy jest świeże",
+      "Zamówienie tortu przez jeden prosty formularz",
+      "Ciepła, apetyczna oprawa zamiast surowego cennika",
+    ],
+    industrySlug: "strony-dla-piekarni",
+  },
+  {
+    id: "lila",
+    anchor: "praca-06",
+    slug: "studio-urody-lila",
+    nr: "06",
+    name: "Lila",
+    sector: "Studio urody i kosmetologii",
+    district: "Wilanów",
+    note: "Spokojna, premium oprawa z zabiegami, cenami i rezerwacją online.",
+    image: "/examples/salon-after.jpg",
+    alt: "Projekt strony dla studia urody Lila — jasna, elegancka strona z zabiegami i rezerwacją online",
+    problem:
+      "Zadbane zabiegi i stali klienci, ale rezerwacja tylko przez telefon i wiadomości. Cennika nigdzie nie widać, a strona nie oddaje spokoju gabinetu.",
+    story: [
+      "Studio urody sprzedaje spokój i zaufanie. Chciałem, żeby strona była tak samo wyciszona i uporządkowana jak dobry gabinet: dużo powietrza, delikatna paleta, żadnego krzyku.",
+      "Ułożyłem zabiegi i ceny w czytelny sposób, z jednym wyraźnym przyciskiem rezerwacji. Nowa klientka w kilka sekund wie, co obejmuje wizyta, ile kosztuje i jak ją umówić.",
+    ],
+    changes: [
+      "Rezerwacja online zamiast wyłącznie telefonu i wiadomości",
+      "Czytelny cennik zabiegów, bez chowania cen",
+      "Spokojna, premium oprawa pod charakter miejsca",
+      "Osobne sekcje zabiegów: twarz, brwi i rzęsy, dłonie",
+    ],
+    industrySlug: "strony-dla-salonu-kosmetycznego",
   },
 ];
 
